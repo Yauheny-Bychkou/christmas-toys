@@ -292,6 +292,7 @@ export class AppView {
 
         this.resetFilter.addEventListener('click', () => {
             this.filterState = new FilterState(); // TODO: check if we have to create a new instance or just erase all to defaults
+            this.filteredToys = this.originalToys;
             this.drawToys();
 
             this.select.value = 'start';
