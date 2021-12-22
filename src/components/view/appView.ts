@@ -282,7 +282,7 @@ export class AppView {
                 this.searchClear.classList.add('none');
             }
 
-            if (this.filteredToys.length === 0) {
+            if (this.searchToys.length === 0) {
                 alert('Извините, совпадений не обнаружено');
                 return; // TODO: remove this return if need to show empty page with nothing. but you have alert above...?
             }
