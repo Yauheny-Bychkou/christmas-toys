@@ -67,6 +67,8 @@ export class AppView {
     filterState: IFilterState;
     filteredToys: Toy[];
     originalToys: Toy[];
+    searchToys: Toy[];
+
 
     constructor(data: Toy[]) {
         this.inputRangeMinCount = document.getElementById('slider-1') as HTMLInputElement;
@@ -133,6 +135,7 @@ export class AppView {
         this.originalToys = data.slice();
         this.filteredToys = data.slice();
         this.filterState = new FilterState();
+        this.searchToys = data.slice();
 
         this.wrapRangesCount = document.querySelector('.toy-page__ranges-top')!;
         this.wrapRangesYear = document.querySelector('.toy-page__ranges-bottom')!;
@@ -265,23 +268,26 @@ export class AppView {
         });
 
         this.searchInput.addEventListener('input', () => {
-            if (this.searchInput.value.length > 0) { // TODO: что если = 0?
-                this.searchClear.classList.remove('none'); // TODO: переделать в одну строку через .toggle('none')
-            } else if (this.searchInput.value.length < 1) {
-                this.searchClear.classList.add('none');
-            }
-
             const searchText: string = this.searchInput.value.toLowerCase();
 
-            this.filteredToys = this.originalToys.filter((toy: Toy) =>
-                toy.name.toLowerCase().includes(searchText));
+
+
+            if (this.searchInput.value.length > 0) { // TODO: что если = 0?
+                this.searchToys = this.originalToys.filter((toy: Toy) =>
+                    toy.name.toLowerCase().includes(searchText));
+                this.drawSearchToys();
+                this.searchClear.classList.remove('none'); // TODO: переделать в одну строку через .toggle('none')
+            } else if (this.searchInput.value.length < 1) {
+                this.drawToys();
+                this.searchClear.classList.add('none');
+            }
 
             if (this.filteredToys.length === 0) {
                 alert('Извините, совпадений не обнаружено');
                 return; // TODO: remove this return if need to show empty page with nothing. but you have alert above...?
             }
 
-            this.drawToys();
+
         });
 
         this.searchClear.addEventListener('click', () => {
@@ -294,7 +300,6 @@ export class AppView {
             this.filterState = new FilterState(); // TODO: check if we have to create a new instance or just erase all to defaults
             this.filteredToys = this.originalToys;
             this.drawToys();
-
             this.select.value = 'start';
             this.inputBell.checked = false;
             this.svgBellWhite.classList.remove('none');
@@ -339,9 +344,38 @@ export class AppView {
             this.displayValTwo.textContent = this.inputRangeMaxCount.value;
             this.displayValThree.textContent = this.inputRangeMinYear.value;
             this.displayValFour.textContent = this.inputRangeMaxYear.value;
+
         });
     }
+    drawSearchToys() {
+        this.removeToys();
+        const fragment: DocumentFragment = document.createDocumentFragment();
+        const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp')!;
 
+        this.searchToys.forEach((item: Toy) => {
+            const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
+            const spanClone = sourceClone.querySelector('.toy-page__right-favorit--span');
+
+            sourceClone.querySelector('.toy-page__right-name')!.textContent = item.name;
+            sourceClone.querySelector('.toy-page__right-count--span')!.textContent = item.count.toString();
+            sourceClone.querySelector('.toy-page__right-buy--span')!.textContent = item.year.toString();
+            sourceClone.querySelector('.toy-page__right-form--span')!.textContent = item.shape;
+            sourceClone.querySelector('.toy-page__right-color--span')!.textContent = item.color;
+            sourceClone.querySelector('.toy-page__right-size--span')!.textContent = item.size;
+            (<HTMLElement>sourceClone.querySelector('.toy-page__right-span'))!.style.backgroundColor = '#24C5DB';
+            sourceClone
+                .querySelector('.toy-page__right-img')!
+                .setAttribute(
+                    'src',
+                    `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${item.num}.png`
+                );
+
+            spanClone!.textContent = item.favorite ? 'да' : 'нет';
+            fragment.append(sourceClone);
+        });
+        document.querySelector('.toy-page__right-sources')!.append(fragment);
+
+    }
     drawToys() {
         this.removeToys(); // Clean up before drawing again
 
@@ -452,7 +486,7 @@ export class AppView {
             favorite
         } = this.filterState;
 
-        console.log('Before filter', this.filteredToys, selectedShapes);
+        // console.log('Before filter', this.filteredToys, selectedShapes);
         this.filteredToys = this.originalToys.filter((toy: Toy) =>
             ((countRange.min === null || countRange.min <= toy.count) && (countRange.max === null || countRange.max >= toy.count)) &&
             ((yearRange.min === null || yearRange.min <= toy.year) && (yearRange.max === null || yearRange.max >= toy.year)) &&
@@ -462,7 +496,7 @@ export class AppView {
             (!favorite || toy.favorite === favorite) // если isFavorite=false, нам нужны все игрушки и favorite=true и favorite=false.
         );
 
-        console.log('Filtered', this.filteredToys);
+        // console.log('Filtered', this.filteredToys);
     }
 
     fillColorCountRange() {
