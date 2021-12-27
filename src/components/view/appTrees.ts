@@ -165,11 +165,7 @@ export class AppTrees {
     draggable.forEach((item) => {
       item.addEventListener("dragstart", handleDragstart);
       item.addEventListener("dragend", handleDragend);
-      // item.addEventListener("drag", (event: Event) => {
-      //   console.log('drag');
 
-      //   // (<HTMLLIElement>event.target).classList.remove("opacity");
-      // });
     });
     targets.forEach((item) => {
       item.addEventListener("dragenter", handlerDragenter);
@@ -178,7 +174,6 @@ export class AppTrees {
       item.addEventListener("drop", handlerDrop);
     });
     function handleDragstart(event: Event) {
-      // (<HTMLElement>event.target).classList.add("opacity");
       let spanId = (<HTMLElement>event.target).parentNode?.children[1].id as string;
 
       let spanCount = (<HTMLElement>event.target).parentNode?.children[1].textContent as string;
@@ -187,18 +182,14 @@ export class AppTrees {
       (<DragEvent>event).dataTransfer!.setData("id", (<HTMLElement>event.target).id);
     };
     function handleDragend(event: Event) {
-      // (<HTMLElement>event.target).classList.remove("opacity");
     }
     function handlerDragenter(event: Event) {
       event.preventDefault();
-      // console.log("dragenter", event.target);
     };
     function handlerDragleave(event: Event) {
-      // console.log("dragleave", event.target);
     };
     function handlerDragover(event: Event) {
       event.preventDefault();
-      // console.log("dragover", event.target);
     };
     function handlerDrop(event: Event) {
       event.preventDefault();
@@ -206,15 +197,13 @@ export class AppTrees {
       const spanFlag = +(<DragEvent>event).dataTransfer!.getData("spanCount");
       const spanIdFlag = (<DragEvent>event).dataTransfer!.getData("spanId");
       const spanItem = document.querySelector(`#${spanIdFlag}`)!;
-      spanItem.textContent = `${spanFlag - 1}`;
       const dragItem = document.querySelector(`#${dragFlag}`)!;
+      const spanText = spanItem.textContent = `${spanFlag - 1}`;
       const cloneItem = dragItem.cloneNode(true);
-      // (<Element>cloneItem).classList.add("image-drop");
       (<HTMLElement>event.target).append(cloneItem);
+      // (<HTMLElement>event.target).append(dragItem);
+
     };
-
-
-
   }
 
 }

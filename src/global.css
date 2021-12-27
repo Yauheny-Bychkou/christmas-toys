@@ -10,9 +10,6 @@
 .opacity {
     opacity: 0;
 }
-.image-drop {
-    transform: rotate(-65deg);
-}
 .drop-zone {
     position: absolute;
     z-index: 25;
@@ -28,86 +25,1163 @@
 .drop-zone__wrappper {
     position: relative;
 }
+.drop-zone__box {
+    width: 35px;
+    height: 35px;
+}
 .drop-zone__top {
     position: absolute;
-    top: 12%;
-    left: 28%;
+    top: 1%;
+    left: 45%;
+    border: 1px solid transparent;
 
-    width: 272px;
-    height: 134px;
-    transform: rotate(65deg);
     z-index: 25;
 }
 .drop-zone__top-one {
     position: absolute;
-    top: 27%;
-    left: 25%;
-
-    width: 286px;
-    height: 150px;
-    transform: rotate(32deg);
+    top: 6%;
+    left: 40%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-two {
     position: absolute;
-    top: 47%;
-    left: 15%;
-
-    width: 286px;
-    height: 150px;
-    transform: rotate(32deg);
+    top: 6%;
+    left: 47%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-three {
     position: absolute;
-    top: 65%;
-    left: 0%;
-
-    width: 281px;
-    height: 146px;
-    transform: rotate(32deg);
+    top: 6%;
+    left: 54%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-four {
     position: absolute;
-    bottom: 7%;
-    left: -2%;
-
-    width: 234px;
-    height: 61px;
-    transform: rotate(32deg);
+    top: 10%;
+    left: 37%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-five {
     position: absolute;
-    top: 49%;
-    right: 17%;
-
-    width: 52px;
-    height: 75px;
-    transform: rotate(32deg);
+    top: 10%;
+    right: 49%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-six {
     position: absolute;
-    top: 54%;
-    right: 24%;
-
-    width: 80px;
-    height: 338px;
-    transform: rotate(32deg);
+    top: 10%;
+    right: 42%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-seven {
     position: absolute;
-    top: 65%;
-    right: 15%;
-
-    width: 64px;
-    height: 276px;
-    transform: rotate(32deg);
+    top: 10%;
+    right: 35%;
+    border: 1px solid transparent;
 }
 .drop-zone__top-eight {
     position: absolute;
-    bottom: 2%;
-    right: 6%;
-    width: 48px;
-    height: 164px;
-    transform: rotate(32deg);
+    top: 14%;
+    right: 58%;
+    border: 1px solid transparent;
+}
+.drop-zone__top-nine {
+    position: absolute;
+    top: 14%;
+    right: 51%;
+    border: 1px solid transparent;
+}
+.drop-zone__top-ten {
+    position: absolute;
+    top: 14%;
+    right: 44%;
+    border: 1px solid transparent;
+}
+.drop-zone__top-eleven {
+    position: absolute;
+    top: 14%;
+    right: 37%;
+    border: 1px solid transparent;
+}
+.drop-zone__top-twelve {
+    position: absolute;
+    top: 14%;
+    right: 30%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-one {
+    position: absolute;
+    top: 18%;
+    right: 62%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-two {
+    position: absolute;
+    top: 18%;
+    right: 55%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-three {
+    position: absolute;
+    top: 18%;
+    right: 48%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-four {
+    position: absolute;
+    top: 18%;
+    right: 41%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-five {
+    position: absolute;
+    top: 18%;
+    right: 34%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-six {
+    position: absolute;
+    top: 18%;
+    right: 27%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-six {
+    position: absolute;
+    top: 22%;
+    right: 32%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-seven {
+    position: absolute;
+    top: 22%;
+    right: 39%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-eight {
+    position: absolute;
+    top: 22%;
+    right: 46%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-nine {
+    position: absolute;
+    top: 22%;
+    right: 53%;
+    border: 1px solid transparent;
+}
+.drop-zone__middle-ten {
+    position: absolute;
+    top: 22%;
+    right: 60%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-one {
+    position: absolute;
+    top: 26%;
+    right: 62%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-two {
+    position: absolute;
+    top: 26%;
+    right: 55%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-three {
+    position: absolute;
+    top: 26%;
+    right: 48%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-four {
+    position: absolute;
+    top: 26%;
+    right: 41%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-five {
+    position: absolute;
+    top: 26%;
+    right: 34%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-six {
+    position: absolute;
+    top: 26%;
+    right: 27%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-seven {
+    position: absolute;
+    top: 30%;
+    right: 25%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-eight {
+    position: absolute;
+    top: 30%;
+    right: 32%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-nine {
+    position: absolute;
+    top: 30%;
+    right: 39%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-ten {
+    position: absolute;
+    top: 30%;
+    right: 46%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-eleven {
+    position: absolute;
+    top: 30%;
+    right: 53%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-twelve {
+    position: absolute;
+    top: 30%;
+    right: 60%;
+    border: 1px solid transparent;
+}
+.drop-zone__down-therteen {
+    position: absolute;
+    top: 30%;
+    right: 67%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-one {
+    position: absolute;
+    top: 34%;
+    right: 70%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-two {
+    position: absolute;
+    top: 34%;
+    right: 63%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-three {
+    position: absolute;
+    top: 34%;
+    right: 56%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-four {
+    position: absolute;
+    top: 34%;
+    right: 49%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-five {
+    position: absolute;
+    top: 34%;
+    right: 42%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-six {
+    position: absolute;
+    top: 34%;
+    right: 35%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-seven {
+    position: absolute;
+    top: 34%;
+    right: 28%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-eight {
+    position: absolute;
+    top: 34%;
+    right: 21%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-nine {
+    position: absolute;
+    top: 38%;
+    right: 24%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-ten {
+    position: absolute;
+    top: 38%;
+    right: 31%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-eleven {
+    position: absolute;
+    top: 38%;
+    right: 38%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-twelve {
+    position: absolute;
+    top: 38%;
+    right: 45%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-13 {
+    position: absolute;
+    top: 38%;
+    right: 52%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-14 {
+    position: absolute;
+    top: 38%;
+    right: 59%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-15 {
+    position: absolute;
+    top: 38%;
+    right: 66%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-16 {
+    position: absolute;
+    top: 38%;
+    right: 73%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-17 {
+    position: absolute;
+    top: 42%;
+    right: 75%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-18 {
+    position: absolute;
+    top: 42%;
+    right: 68%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-19 {
+    position: absolute;
+    top: 42%;
+    right: 61%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-20 {
+    position: absolute;
+    top: 42%;
+    right: 54%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-21 {
+    position: absolute;
+    top: 42%;
+    right: 47%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-22 {
+    position: absolute;
+    top: 42%;
+    right: 40%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-23 {
+    position: absolute;
+    top: 42%;
+    right: 33%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-24 {
+    position: absolute;
+    top: 42%;
+    right: 26%;
+    border: 1px solid transparent;
+}
+.drop-zone__center-25 {
+    position: absolute;
+    top: 42%;
+    right: 19%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-1 {
+    position: absolute;
+    top: 46%;
+    right: 17%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-2 {
+    position: absolute;
+    top: 46%;
+    right: 24%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-3 {
+    position: absolute;
+    top: 46%;
+    right: 31%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-4 {
+    position: absolute;
+    top: 46%;
+    right: 38%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-5 {
+    position: absolute;
+    top: 46%;
+    right: 45%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-6 {
+    position: absolute;
+    top: 46%;
+    right: 52%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-7 {
+    position: absolute;
+    top: 46%;
+    right: 59%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-8 {
+    position: absolute;
+    top: 46%;
+    right: 66%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-9 {
+    position: absolute;
+    top: 46%;
+    right: 73%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-10 {
+    position: absolute;
+    top: 50%;
+    right: 75%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-11 {
+    position: absolute;
+    top: 50%;
+    right: 68%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-12 {
+    position: absolute;
+    top: 50%;
+    right: 61%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-13 {
+    position: absolute;
+    top: 50%;
+    right: 54%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-14 {
+    position: absolute;
+    top: 50%;
+    right: 47%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-15 {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-16 {
+    position: absolute;
+    top: 50%;
+    right: 33%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-17 {
+    position: absolute;
+    top: 50%;
+    right: 26%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-18 {
+    position: absolute;
+    top: 50%;
+    right: 19%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-19 {
+    position: absolute;
+    top: 54%;
+    right: 17%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-20 {
+    position: absolute;
+    top: 54%;
+    right: 24%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-21 {
+    position: absolute;
+    top: 54%;
+    right: 31%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-22 {
+    position: absolute;
+    top: 54%;
+    right: 38%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-23 {
+    position: absolute;
+    top: 54%;
+    right: 45%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-24 {
+    position: absolute;
+    top: 54%;
+    right: 52%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-25 {
+    position: absolute;
+    top: 54%;
+    right: 59%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-26 {
+    position: absolute;
+    top: 54%;
+    right: 66%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-27 {
+    position: absolute;
+    top: 54%;
+    right: 73%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-28 {
+    position: absolute;
+    top: 58%;
+    right: 78%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-29 {
+    position: absolute;
+    top: 58%;
+    right: 71%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-30 {
+    position: absolute;
+    top: 58%;
+    right: 64%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-31 {
+    position: absolute;
+    top: 58%;
+    right: 57%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-32 {
+    position: absolute;
+    top: 58%;
+    right: 50%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-33 {
+    position: absolute;
+    top: 58%;
+    right: 43%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-34 {
+    position: absolute;
+    top: 58%;
+    right: 36%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-35 {
+    position: absolute;
+    top: 58%;
+    right: 29%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-36 {
+    position: absolute;
+    top: 58%;
+    right: 22%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-37 {
+    position: absolute;
+    top: 58%;
+    right: 15%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-38 {
+    position: absolute;
+    top: 62%;
+    right: 11%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-39 {
+    position: absolute;
+    top: 62%;
+    right: 17%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-40 {
+    position: absolute;
+    top: 62%;
+    right: 24%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-41 {
+    position: absolute;
+    top: 62%;
+    right: 31%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-42 {
+    position: absolute;
+    top: 62%;
+    right: 38%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-43 {
+    position: absolute;
+    top: 62%;
+    right: 45%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-44 {
+    position: absolute;
+    top: 62%;
+    right: 52%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-45 {
+    position: absolute;
+    top: 62%;
+    right: 59%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-46 {
+    position: absolute;
+    top: 62%;
+    right: 66%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-47 {
+    position: absolute;
+    top: 62%;
+    right: 73%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-48 {
+    position: absolute;
+    top: 62%;
+    right: 80%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-49 {
+    position: absolute;
+    top: 66%;
+    right: 82%;
+    border: 1px solid transparent;
+}
+.drop-zone__bottom-50 {
+    position: absolute;
+    top: 66%;
+    right: 75%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-1 {
+    position: absolute;
+    top: 66%;
+    right: 68%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-2 {
+    position: absolute;
+    top: 66%;
+    right: 61%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-3 {
+    position: absolute;
+    top: 66%;
+    right: 54%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-4 {
+    position: absolute;
+    top: 66%;
+    right: 47%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-5 {
+    position: absolute;
+    top: 66%;
+    right: 40%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-6 {
+    position: absolute;
+    top: 66%;
+    right: 33%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-7 {
+    position: absolute;
+    top: 66%;
+    right: 26%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-8 {
+    position: absolute;
+    top: 66%;
+    right: 19%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-9 {
+    position: absolute;
+    top: 66%;
+    right: 12%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-10 {
+    position: absolute;
+    top: 70%;
+    right: 10%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-11 {
+    position: absolute;
+    top: 70%;
+    right: 17%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-12 {
+    position: absolute;
+    top: 70%;
+    right: 24%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-13 {
+    position: absolute;
+    top: 70%;
+    right: 31%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-14 {
+    position: absolute;
+    top: 70%;
+    right: 38%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-15 {
+    position: absolute;
+    top: 70%;
+    right: 45%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-16 {
+    position: absolute;
+    top: 70%;
+    right: 52%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-17 {
+    position: absolute;
+    top: 70%;
+    right: 59%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-18 {
+    position: absolute;
+    top: 70%;
+    right: 66%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-19 {
+    position: absolute;
+    top: 70%;
+    right: 73%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-20 {
+    position: absolute;
+    top: 70%;
+    right: 80%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-21 {
+    position: absolute;
+    top: 74%;
+    right: 84%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-22 {
+    position: absolute;
+    top: 74%;
+    right: 77%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-23 {
+    position: absolute;
+    top: 74%;
+    right: 70%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-24 {
+    position: absolute;
+    top: 74%;
+    right: 63%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-25 {
+    position: absolute;
+    top: 74%;
+    right: 56%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-26 {
+    position: absolute;
+    top: 74%;
+    right: 49%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-27 {
+    position: absolute;
+    top: 74%;
+    right: 42%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-28 {
+    position: absolute;
+    top: 74%;
+    right: 35%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-29 {
+    position: absolute;
+    top: 74%;
+    right: 28%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-30 {
+    position: absolute;
+    top: 74%;
+    right: 21%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-31 {
+    position: absolute;
+    top: 74%;
+    right: 14%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-32 {
+    position: absolute;
+    top: 74%;
+    right: 7%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-33 {
+    position: absolute;
+    top: 78%;
+    right: 5%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-34 {
+    position: absolute;
+    top: 78%;
+    right: 12%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-35 {
+    position: absolute;
+    top: 78%;
+    right: 19%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-36 {
+    position: absolute;
+    top: 78%;
+    right: 26%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-37 {
+    position: absolute;
+    top: 78%;
+    right: 33%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-38 {
+    position: absolute;
+    top: 78%;
+    right: 40%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-39 {
+    position: absolute;
+    top: 78%;
+    right: 47%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-40 {
+    position: absolute;
+    top: 78%;
+    right: 54%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-41 {
+    position: absolute;
+    top: 78%;
+    right: 61%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-42 {
+    position: absolute;
+    top: 78%;
+    right: 68%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-43 {
+    position: absolute;
+    top: 78%;
+    right: 75%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-44 {
+    position: absolute;
+    top: 78%;
+    right: 82%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-45 {
+    position: absolute;
+    top: 78%;
+    right: 89%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-46 {
+    position: absolute;
+    top: 82%;
+    right: 92%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-47 {
+    position: absolute;
+    top: 82%;
+    right: 85%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-48 {
+    position: absolute;
+    top: 82%;
+    right: 78%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-49 {
+    position: absolute;
+    top: 82%;
+    right: 71%;
+    border: 1px solid transparent;
+}
+.drop-zone__underbottom-50 {
+    position: absolute;
+    top: 82%;
+    right: 64%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-1 {
+    position: absolute;
+    top: 82%;
+    right: 57%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-2 {
+    position: absolute;
+    top: 82%;
+    right: 50%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-3 {
+    position: absolute;
+    top: 82%;
+    right: 43%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-4 {
+    position: absolute;
+    top: 82%;
+    right: 36%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-5 {
+    position: absolute;
+    top: 82%;
+    right: 29%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-6 {
+    position: absolute;
+    top: 82%;
+    right: 22%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-7 {
+    position: absolute;
+    top: 82%;
+    right: 15%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-8 {
+    position: absolute;
+    top: 82%;
+    right: 8%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-9 {
+    position: absolute;
+    top: 86%;
+    right: 8%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-10 {
+    position: absolute;
+    top: 86%;
+    right: 15%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-11 {
+    position: absolute;
+    top: 86%;
+    right: 22%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-12 {
+    position: absolute;
+    top: 86%;
+    right: 29%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-13 {
+    position: absolute;
+    top: 86%;
+    right: 36%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-14 {
+    position: absolute;
+    top: 86%;
+    right: 43%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-15 {
+    position: absolute;
+    top: 86%;
+    right: 50%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-16 {
+    position: absolute;
+    top: 86%;
+    right: 57%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-17 {
+    position: absolute;
+    top: 86%;
+    right: 64%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-18 {
+    position: absolute;
+    top: 86%;
+    right: 71%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-19 {
+    position: absolute;
+    top: 86%;
+    right: 78%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-20 {
+    position: absolute;
+    top: 86%;
+    right: 85%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-21 {
+    position: absolute;
+    top: 90%;
+    right: 80%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-22 {
+    position: absolute;
+    top: 90%;
+    right: 73%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-23 {
+    position: absolute;
+    top: 90%;
+    right: 66%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-24 {
+    position: absolute;
+    top: 90%;
+    right: 59%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-25 {
+    position: absolute;
+    top: 90%;
+    right: 52%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-26 {
+    position: absolute;
+    top: 90%;
+    right: 45%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-27 {
+    position: absolute;
+    top: 90%;
+    right: 38%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-28 {
+    position: absolute;
+    top: 90%;
+    right: 31%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-29 {
+    position: absolute;
+    top: 90%;
+    right: 24%;
+    border: 1px solid transparent;
+}
+.drop-zone__underdown-30 {
+    position: absolute;
+    top: 90%;
+    right: 17%;
+    border: 1px solid transparent;
 }
 .svg {
     position: absolute;
@@ -237,6 +1311,12 @@ input[type='range']:active::-webkit-slider-thumb {
     font-size: 22px;
     line-height: 27px;
     padding: 0;
+}
+.header-nav__bnt:active {
+    background-color: rgb(36, 197, 219);
+}
+.header-nav__bnt:hover {
+    color: rgb(36, 197, 219);
 }
 .header-search__panel-form {
     position: relative;
@@ -1034,6 +2114,10 @@ input[type='range']:active::-webkit-slider-thumb {
     height: 36px;
     padding: 0;
 }
+.tree-page__media-button:active {
+    background-color: rgb(36, 197, 219);
+}
+
 .tree-page__media-music {
     background-image: url(assets/sound.svg);
 }
