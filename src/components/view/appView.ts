@@ -3,6 +3,7 @@ import { FilterState, IFilterState, IRangeFilter } from "../app/filter-state";
 import { Shape } from "../app/shape";
 import { Size } from "../app/size";
 import { Toy } from "../app/toy.model";
+import { AppTrees } from "./appTrees";
 
 const MIN_YEAR: number = 1940;
 const MAX_YEAR: number = 2021;
@@ -64,10 +65,13 @@ export class AppView {
     wrapRangesCount: Element;
     wrapRangesYear: Element;
 
+
     filterState: IFilterState;
     filteredToys: Toy[];
     originalToys: Toy[];
     searchToys: Toy[];
+    selectState: string[];
+    trees: AppTrees;
 
 
     constructor(data: Toy[]) {
@@ -128,17 +132,18 @@ export class AppView {
         this.minGap = 2;
         this.minGapTwo = 1;
         this.inputRangeMinCount.value = '0';
-        this.inputRangeMaxCount.value = '9';
+        this.inputRangeMaxCount.value = '12';
         this.inputRangeMinYear.value = '1940';
         this.inputRangeMaxYear.value = '2021';
 
         this.originalToys = data.slice();
         this.filteredToys = data.slice();
+        this.selectState = [];
         this.filterState = new FilterState();
         this.searchToys = data.slice();
-
         this.wrapRangesCount = document.querySelector('.toy-page__ranges-top')!;
         this.wrapRangesYear = document.querySelector('.toy-page__ranges-bottom')!;
+        this.trees = new AppTrees(data);
 
         this.initEventListeners();
     }
@@ -270,8 +275,6 @@ export class AppView {
         this.searchInput.addEventListener('input', () => {
             const searchText: string = this.searchInput.value.toLowerCase();
 
-
-
             if (this.searchInput.value.length > 0) { // TODO: что если = 0?
                 this.searchToys = this.originalToys.filter((toy: Toy) =>
                     toy.name.toLowerCase().includes(searchText));
@@ -286,7 +289,6 @@ export class AppView {
                 alert('Извините, совпадений не обнаружено');
                 return; // TODO: remove this return if need to show empty page with nothing. but you have alert above...?
             }
-
 
         });
 
@@ -349,67 +351,70 @@ export class AppView {
     }
     drawSearchToys() {
         this.removeToys();
-        const fragment: DocumentFragment = document.createDocumentFragment();
-        const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp')!;
-
-        this.searchToys.forEach((item: Toy) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
-            const spanClone = sourceClone.querySelector('.toy-page__right-favorit--span');
-
-            sourceClone.querySelector('.toy-page__right-name')!.textContent = item.name;
-            sourceClone.querySelector('.toy-page__right-count--span')!.textContent = item.count.toString();
-            sourceClone.querySelector('.toy-page__right-buy--span')!.textContent = item.year.toString();
-            sourceClone.querySelector('.toy-page__right-form--span')!.textContent = item.shape;
-            sourceClone.querySelector('.toy-page__right-color--span')!.textContent = item.color;
-            sourceClone.querySelector('.toy-page__right-size--span')!.textContent = item.size;
-            (<HTMLElement>sourceClone.querySelector('.toy-page__right-span'))!.style.backgroundColor = '#24C5DB';
-            sourceClone
-                .querySelector('.toy-page__right-img')!
-                .setAttribute(
-                    'src',
-                    `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${item.num}.png`
-                );
-
-            spanClone!.textContent = item.favorite ? 'да' : 'нет';
-            fragment.append(sourceClone);
-        });
-        document.querySelector('.toy-page__right-sources')!.append(fragment);
-
+        this.draw(this.searchToys);
+        this.selectFavoriteToys();
     }
     drawToys() {
         this.removeToys(); // Clean up before drawing again
-
-        const countToys = document.querySelector('.header-search__toy-input') as Element;
-        const fragment: DocumentFragment = document.createDocumentFragment();
-        const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp')!;
+        this.draw(this.filteredToys);
+        this.selectFavoriteToys();
+    }
+    draw(array: Toy[]) {
+        const wrapperToys = document.querySelector(".toy-page__right-sources") as Element;
+        array.forEach((item: Toy) => {
+            const wrapperToy = document.createElement("div");
+            const nameToy = document.createElement("h3");
+            const wrapperImageToy = document.createElement("div");
+            const imageToy = document.createElement("img");
+            const numberToy = document.createElement("h4");
+            const spanNumberToy = document.createElement("span");
+            const yearToy = document.createElement("h4");
+            const formToy = document.createElement("h4");
+            const colorToy = document.createElement("h4");
+            const sizeToy = document.createElement("h4");
+            const favoriteToy = document.createElement("h4");
+            const stickerFavorite = document.createElement("span");
+            const overlay = document.createElement("div");
+            overlay.classList.add("toy-page__right-overlay");
+            stickerFavorite.classList.add('toy-page__right-span');
+            stickerFavorite!.style.backgroundColor = '#24C5DB';
+            favoriteToy.classList.add("toy-page__right-property");
+            favoriteToy.textContent = item.favorite ? 'Любимая: да' : 'Любимая: нет';
+            sizeToy.classList.add("toy-page__right-property");
+            sizeToy.textContent = `Размер: ${item.size}`;
+            colorToy.classList.add("toy-page__right-property");
+            colorToy.textContent = `Цвет: ${item.color}`;
+            formToy.classList.add("toy-page__right-property");
+            formToy.textContent = `Форма: ${item.shape}`;
+            yearToy.classList.add("toy-page__right-property");
+            numberToy.classList.add("toy-page__right-property");
+            yearToy.textContent = `Год покупки: ${item.year.toString()}`;
+            numberToy.textContent = "Количество: ";
+            spanNumberToy.classList.add("toy-page__right-count--span");
+            spanNumberToy.textContent = item.count.toString();
+            numberToy.append(spanNumberToy);
+            imageToy.setAttribute("alt", "toy-image");
+            imageToy.setAttribute("src", `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${item.num}.png`);
+            nameToy.textContent = item.name;
+            imageToy.classList.add("toy-page__right-img");
+            wrapperImageToy.classList.add("toy-page__right-box");
+            wrapperToy.classList.add("toy-page__right-item");
+            wrapperImageToy.append(imageToy);
+            nameToy.classList.add("toy-page__right-name");
+            wrapperToy.append(nameToy, wrapperImageToy, numberToy, yearToy, formToy, colorToy, sizeToy, favoriteToy, stickerFavorite, overlay);
+            wrapperToys.append(wrapperToy);
+        });
+    }
+    selectFavoriteToys() {
         let count: number = 0;
         let arr: number[] = [];
-
-        this.filteredToys.forEach((item: Toy) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
-            const spanClone = sourceClone.querySelector('.toy-page__right-favorit--span');
-
-            sourceClone.querySelector('.toy-page__right-name')!.textContent = item.name;
-            sourceClone.querySelector('.toy-page__right-count--span')!.textContent = item.count.toString();
-            sourceClone.querySelector('.toy-page__right-buy--span')!.textContent = item.year.toString();
-            sourceClone.querySelector('.toy-page__right-form--span')!.textContent = item.shape;
-            sourceClone.querySelector('.toy-page__right-color--span')!.textContent = item.color;
-            sourceClone.querySelector('.toy-page__right-size--span')!.textContent = item.size;
-            (<HTMLElement>sourceClone.querySelector('.toy-page__right-span'))!.style.backgroundColor = '#24C5DB';
-            sourceClone
-                .querySelector('.toy-page__right-img')!
-                .setAttribute(
-                    'src',
-                    `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${item.num}.png`
-                );
-
-            spanClone!.textContent = item.favorite ? 'да' : 'нет';
-            fragment.append(sourceClone);
-        });
-        document.querySelector('.toy-page__right-sources')!.append(fragment);
-
+        const countToys = document.querySelector('.header-search__toy-input') as Element;
         document.querySelectorAll('.toy-page__right-overlay').forEach((item, i) => {
             item.addEventListener('click', () => {
+                let num: string;
+                let lengthArrLinkImageToy = (<HTMLImageElement>item.parentNode?.children[1].children[0]).src.split("").length;
+                let arrLinkImageToy = (<HTMLImageElement>item.parentNode?.children[1].children[0]).src.split("");
+
                 if (
                     (<HTMLElement>document.querySelectorAll('.toy-page__right-span')[i]).style.backgroundColor ===
                     'rgb(36, 197, 219)'
@@ -418,6 +423,13 @@ export class AppView {
                         'rgb(203, 183, 122)';
                     arr.push(i);
                     count++;
+                    if (lengthArrLinkImageToy === 101) {
+                        num = arrLinkImageToy[96];
+                        this.changeFavoriteState(num, true);
+                    } else if (lengthArrLinkImageToy === 102) {
+                        num = arrLinkImageToy[96] + arrLinkImageToy[97];
+                        this.changeFavoriteState(num, true);
+                    }
                 } else if (
                     (<HTMLElement>document.querySelectorAll('.toy-page__right-span')[i]).style.backgroundColor ===
                     'rgb(203, 183, 122)'
@@ -430,6 +442,13 @@ export class AppView {
                         }
                     });
                     count--;
+                    if (lengthArrLinkImageToy === 101) {
+                        num = arrLinkImageToy[96];
+                        this.changeFavoriteState(num, false);
+                    } else if (lengthArrLinkImageToy === 102) {
+                        num = arrLinkImageToy[96] + arrLinkImageToy[97];
+                        this.changeFavoriteState(num, false);
+                    }
                 }
                 if (count === 20) {
                     alert('Все слоты заполнены');
@@ -449,15 +468,27 @@ export class AppView {
                 (<HTMLInputElement>countToys).value = `${count}`;
             });
         });
+
+    }
+    changeFavoriteState(num: string, isAdded: boolean) {
+        if (isAdded) {
+            this.selectState.push(num);
+            this.filterFavorite(this.selectState);
+        } else {
+            this.selectState = this.selectState.filter((item) => item !== num);
+            this.filterFavorite(this.selectState);
+        }
     }
 
+    filterFavorite(data: string[]) {
+        const arrFavoriteToys = this.originalToys.filter((item: Toy) => data.includes(item.num));
+        this.trees.filterFavoriteToys(arrFavoriteToys);
+    }
     changeFilterState(key: keyof IFilterState, value: any, isAdded: boolean = true) {
-        console.warn(key, value, isAdded) // TODO: remove
-
         if (isAdded) {
             if (typeof value === 'string') {
                 (this.filterState[key] as string[]).push(value);
-            } else if (typeof value === 'boolean' && key === 'favorite') { // TODO: simplify it
+            } else if (typeof value === 'boolean' && key === 'favorite') {
                 this.filterState[key] = value;
             } else {
                 const range = this.filterState[key] as IRangeFilter<number>;
@@ -471,8 +502,6 @@ export class AppView {
                 filterValues.splice(valueIndex, 1);
             }
         }
-
-        console.warn('Logging filter state', this.filterState); // TODO: remove
         this.filterToys();
     }
 
@@ -485,8 +514,6 @@ export class AppView {
             size: selectedSizes,
             favorite
         } = this.filterState;
-
-        // console.log('Before filter', this.filteredToys, selectedShapes);
         this.filteredToys = this.originalToys.filter((toy: Toy) =>
             ((countRange.min === null || countRange.min <= toy.count) && (countRange.max === null || countRange.max >= toy.count)) &&
             ((yearRange.min === null || yearRange.min <= toy.year) && (yearRange.max === null || yearRange.max >= toy.year)) &&
@@ -495,8 +522,6 @@ export class AppView {
             (selectedSizes.length === 0 || selectedSizes.includes(toy.size as Size)) &&
             (!favorite || toy.favorite === favorite) // если isFavorite=false, нам нужны все игрушки и favorite=true и favorite=false.
         );
-
-        // console.log('Filtered', this.filteredToys);
     }
 
     fillColorCountRange() {

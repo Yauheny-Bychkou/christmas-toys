@@ -15,7 +15,7 @@
                 <div class="header-wrap">
                     <nav class="header-nav">
                         <ul class="header-nav__list">
-                            <li class="header-nav__item">
+                            <li class="header-nav__item header-nav__item--start">
                                 <button class="header-nav__bnt">
                                     <svg width="28" height="37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -25,10 +25,10 @@
                                     </svg>
                                 </button>
                             </li>
-                            <li class="header-nav__item">
+                            <li class="header-nav__item header-nav__item--toys">
                                 <button class="header-nav__bnt">Игрушки</button>
                             </li>
-                            <li class="header-nav__item">
+                            <li class="header-nav__item header-nav__item--tree">
                                 <button class="header-nav__bnt">Ёлка</button>
                             </li>
                         </ul>
@@ -425,7 +425,7 @@
                                             <input
                                                 type="range"
                                                 min="0"
-                                                max="9"
+                                                max="12"
                                                 value="0"
                                                 id="slider-1"
                                                 class="slider-1"
@@ -433,8 +433,8 @@
                                             <input
                                                 type="range"
                                                 min="0"
-                                                max="9"
-                                                value="9"
+                                                max="12"
+                                                value="12"
                                                 id="slider-2"
                                                 class="slider-2"
                                             />
@@ -443,7 +443,7 @@
                                     <div class="toy-page__ranges-top-wrap">
                                         <span class="toy-page__ranges-top-span toy-page__ranges-top-span--left">0</span>
                                         <span class="toy-page__ranges-top-span toy-page__ranges-top-span--right"
-                                            >9</span
+                                            >12</span
                                         >
                                     </div>
                                 </div>
@@ -700,34 +700,560 @@
                         <div class="toy-page__right">
                             <h2 class="toy-page__right-title">Игрушки</h2>
                             <div class="toy-page__right-sources sources buttons"></div>
-                            <template id="sourceItemTemp">
-                                <div class="toy-page__right-item">
-                                    <h3 class="toy-page__right-name"></h3>
-                                    <div class="toy-page__right-box">
-                                        <img class="toy-page__right-img" alt="toy" />
-                                    </div>
-                                    <h4 class="toy-page__right-property">
-                                        Количество: <span class="toy-page__right-count--span"> </span>
-                                    </h4>
-                                    <h4 class="toy-page__right-property">
-                                        Год покупки: <span class="toy-page__right-buy--span"> </span> год
-                                    </h4>
-                                    <h4 class="toy-page__right-property">
-                                        Форма: <span class="toy-page__right-form--span"> </span>
-                                    </h4>
-                                    <h4 class="toy-page__right-property">
-                                        Цвет игрушки: <span class="toy-page__right-color--span"> </span>
-                                    </h4>
-                                    <h4 class="toy-page__right-property">
-                                        Размер игрушки: <span class="toy-page__right-size--span"> </span>
-                                    </h4>
-                                    <h4 class="toy-page__right-property">
-                                        Любимая: <span class="toy-page__right-favorit--span"> </span>
-                                    </h4>
-                                    <div class="toy-page__right-span"></div>
-                                    <div class="toy-page__right-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tree-page none">
+                <img class="start-page__image start-page__image--tree" src="assets/bg.jpg" alt="background" />
+                <div class="tree-page__wrapper">
+                    <div class="container">
+                        <div class="tree-page__cont">
+                            <div class="tree-page__wrapper-left">
+                                <div class="tree-page__media">
+                                    <button class="tree-page__media-button tree-page__media-music"></button>
+                                    <button class="tree-page__media-button tree-page__media-snow"></button>
                                 </div>
-                            </template>
+
+                                <div class="tree-page__trees">
+                                    <h3 class="tree-page__trees-title">Выберите Ёлку</h3>
+                                    <div class="tree-page__trees-collection">
+                                        <div class="tree-page__trees-box"></div>
+                                        <div class="tree-page__trees-box"></div>
+                                        <div class="tree-page__trees-box"></div>
+                                        <div class="tree-page__trees-box"></div>
+                                    </div>
+                                </div>
+                                <div class="tree-page__background">
+                                    <h3 class="tree-page__background-title">Выберите Фон</h3>
+                                    <div class="tree-page__background-collection">
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                        <div class="tree-page__background-box"></div>
+                                    </div>
+                                </div>
+                                <div class="tree-page__garland">
+                                    <h3 class="tree-page__garland-title">Гирлянда</h3>
+                                    <div class="tree-page__garland-collection">
+                                        <button
+                                            class="tree-page__garland-button tree-page__garland-multicolor"
+                                        ></button>
+                                        <button class="tree-page__garland-button tree-page__garland-red"></button>
+                                        <button class="tree-page__garland-button tree-page__garland-blue"></button>
+                                        <button class="tree-page__garland-button tree-page__garland-yellow"></button>
+                                        <button class="tree-page__garland-button tree-page__garland-green"></button>
+                                        <button class="tree-page__garland-off">Выкл</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tree-page__wrapper-center">
+                                <div class="drop-zone">
+                                    <div class="drop-zone__wrappper"></div>
+                                    <div class="drop-zone__top-eight" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-seven" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-six" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-five" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-four" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-three" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-two" data-drop-target="true"></div>
+                                    <div class="drop-zone__top-one" data-drop-target="true"></div>
+                                    <div class="drop-zone__top" data-drop-target="true"></div>
+                                </div>
+                                <div class="snowflakes none" aria-hidden="true">
+                                    <div class="snowflake">❅</div>
+                                    <div class="snowflake">❅</div>
+                                    <div class="snowflake">❆</div>
+                                    <div class="snowflake">❄</div>
+                                    <div class="snowflake">❅</div>
+                                    <div class="snowflake">❆</div>
+                                    <div class="snowflake">❄</div>
+                                    <div class="snowflake">❅</div>
+                                    <div class="snowflake">❆</div>
+                                    <div class="snowflake">❄</div>
+                                </div>
+                                <div class="garland-multicolor none">
+                                    <svg width="150" height="40" class="garland-four">
+                                        <circle cx="5" cy="7" r="5" class="red"></circle>
+                                        <circle cx="20" cy="17" r="5" class="blue"></circle>
+                                        <circle cx="37" cy="25" r="5" class="yellow"></circle>
+                                        <circle cx="55" cy="31" r="5" class="green"></circle>
+                                        <circle cx="75" cy="34" r="5" class="yellow"></circle>
+                                        <circle cx="95" cy="31" r="5" class="green"></circle>
+                                        <circle cx="113" cy="25" r="5" class="yellow"></circle>
+                                        <circle cx="130" cy="17" r="5" class="blue"></circle>
+                                        <circle cx="143" cy="7" r="5" class="red"></circle>
+                                    </svg>
+                                    <svg width="175" height="80" class="garland-three garland-three--one">
+                                        <svg width="175" height="60" class="garland">
+                                            <circle cx="5" cy="7" r="5" class="red"></circle>
+                                            <circle cx="20" cy="17" r="5" class="blue"></circle>
+                                            <circle cx="37" cy="28" r="5" class="yellow"></circle>
+                                            <circle cx="55" cy="40" r="5" class="green"></circle>
+                                            <circle cx="72" cy="45" r="5" class="yellow"></circle>
+                                            <circle cx="90" cy="50" r="5" class="blue"></circle>
+                                            <circle cx="110" cy="45" r="5" class="red"></circle>
+                                            <circle cx="130" cy="37" r="5" class="green"></circle>
+                                            <circle cx="148" cy="26" r="5" class="yellow"></circle>
+                                            <circle cx="160" cy="15" r="5" class="blue"></circle>
+                                            <circle cx="170" cy="5" r="5" class="red"></circle>
+                                        </svg>
+                                    </svg>
+                                    <svg width="300" height="80" class="garland-three">
+                                        <circle cx="5" cy="7" r="5" class="red"></circle>
+                                        <circle cx="20" cy="17" r="5" class="blue"></circle>
+                                        <circle cx="37" cy="25" r="5" class="yellow"></circle>
+                                        <circle cx="55" cy="33" r="5" class="green"></circle>
+                                        <circle cx="75" cy="41" r="5" class="yellow"></circle>
+                                        <circle cx="95" cy="48" r="5" class="blue"></circle>
+                                        <circle cx="115" cy="56" r="5" class="red"></circle>
+                                        <circle cx="135" cy="62" r="5" class="blue"></circle>
+                                        <circle cx="152" cy="65" r="5" class="yellow"></circle>
+                                        <circle cx="169" cy="62" r="5" class="green"></circle>
+                                        <circle cx="189" cy="56" r="5" class="red"></circle>
+                                        <circle cx="209" cy="48" r="5" class="blue"></circle>
+                                        <circle cx="229" cy="41" r="5" class="yellow"></circle>
+                                        <circle cx="249" cy="33" r="5" class="green"></circle>
+                                        <circle cx="267" cy="23" r="5" class="yellow"></circle>
+                                        <circle cx="281" cy="15" r="5" class="blue"></circle>
+                                        <circle cx="295" cy="5" r="5" class="red"></circle>
+                                    </svg>
+                                    <svg width="360" height="80" class="garland-two">
+                                        <circle cx="5" cy="13" r="5" class="red"></circle>
+                                        <circle cx="20" cy="20" r="5" class="blue"></circle>
+                                        <circle cx="35" cy="26" r="5" class="yellow"></circle>
+                                        <circle cx="55" cy="33" r="5" class="green"></circle>
+                                        <circle cx="75" cy="40" r="5" class="yellow"></circle>
+                                        <circle cx="95" cy="47" r="5" class="blue"></circle>
+                                        <circle cx="115" cy="55" r="5" class="red"></circle>
+                                        <circle cx="135" cy="60" r="5" class="blue"></circle>
+                                        <circle cx="155" cy="65" r="5" class="yellow"></circle>
+                                        <circle cx="175" cy="68" r="5" class="green"></circle>
+                                        <circle cx="195" cy="70" r="5" class="yellow"></circle>
+                                        <circle cx="215" cy="70" r="5" class="blue"></circle>
+                                        <circle cx="235" cy="68" r="5" class="red"></circle>
+                                        <circle cx="255" cy="63" r="5" class="green"></circle>
+                                        <circle cx="275" cy="57" r="5" class="yellow"></circle>
+                                        <circle cx="295" cy="52" r="5" class="blue"></circle>
+                                        <circle cx="315" cy="42" r="5" class="red"></circle>
+                                        <circle cx="335" cy="30" r="5" class="blue"></circle>
+                                        <circle cx="355" cy="20" r="5" class="yellow"></circle>
+                                    </svg>
+                                    <svg width="440" height="80" class="garland-one">
+                                        <circle cx="5" cy="10" r="5" class="red"></circle>
+                                        <circle cx="20" cy="17" r="5" class="blue"></circle>
+                                        <circle cx="35" cy="22" r="5" class="yellow"></circle>
+                                        <circle cx="55" cy="28" r="5" class="green"></circle>
+                                        <circle cx="75" cy="35" r="5" class="yellow"></circle>
+                                        <circle cx="95" cy="40" r="5" class="blue"></circle>
+                                        <circle cx="115" cy="45" r="5" class="red"></circle>
+                                        <circle cx="135" cy="50" r="5" class="blue"></circle>
+                                        <circle cx="155" cy="54" r="5" class="yellow"></circle>
+                                        <circle cx="175" cy="60" r="5" class="green"></circle>
+                                        <circle cx="195" cy="66" r="5" class="yellow"></circle>
+                                        <circle cx="215" cy="68" r="5" class="blue"></circle>
+                                        <circle cx="235" cy="68" r="5" class="red"></circle>
+                                        <circle cx="255" cy="68" r="5" class="blue"></circle>
+                                        <circle cx="275" cy="65" r="5" class="yellow"></circle>
+                                        <circle cx="295" cy="62" r="5" class="green"></circle>
+                                        <circle cx="315" cy="57" r="5" class="yellow"></circle>
+                                        <circle cx="335" cy="51" r="5" class="green"></circle>
+                                        <circle cx="355" cy="47" r="5" class="yellow"></circle>
+                                        <circle cx="375" cy="41" r="5" class="blue"></circle>
+                                        <circle cx="395" cy="30" r="5" class="red"></circle>
+                                        <circle cx="415" cy="20" r="5" class="blue"></circle>
+                                        <circle cx="430" cy="10" r="5" class="yellow"></circle>
+                                    </svg>
+                                </div>
+                                <div class="garland-red none">
+                                    <svg width="150" height="40" class="garland-four">
+                                        <circle cx="5" cy="7" r="5" class="red-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="red-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="red-one"></circle>
+                                        <circle cx="55" cy="31" r="5" class="red-one"></circle>
+                                        <circle cx="75" cy="34" r="5" class="red-one"></circle>
+                                        <circle cx="95" cy="31" r="5" class="red-one"></circle>
+                                        <circle cx="113" cy="25" r="5" class="red-one"></circle>
+                                        <circle cx="130" cy="17" r="5" class="red-one"></circle>
+                                        <circle cx="143" cy="7" r="5" class="red-one"></circle>
+                                    </svg>
+                                    <svg width="175" height="80" class="garland-three garland-three--one">
+                                        <svg width="175" height="60" class="garland">
+                                            <circle cx="5" cy="7" r="5" class="red-one"></circle>
+                                            <circle cx="20" cy="17" r="5" class="red-one"></circle>
+                                            <circle cx="37" cy="28" r="5" class="red-one"></circle>
+                                            <circle cx="55" cy="40" r="5" class="red-one"></circle>
+                                            <circle cx="72" cy="45" r="5" class="red-one"></circle>
+                                            <circle cx="90" cy="50" r="5" class="red-one"></circle>
+                                            <circle cx="110" cy="45" r="5" class="red-one"></circle>
+                                            <circle cx="130" cy="37" r="5" class="red-one"></circle>
+                                            <circle cx="148" cy="26" r="5" class="red-one"></circle>
+                                            <circle cx="160" cy="15" r="5" class="red-one"></circle>
+                                            <circle cx="170" cy="5" r="5" class="red-one"></circle>
+                                        </svg>
+                                    </svg>
+                                    <svg width="300" height="80" class="garland-three">
+                                        <circle cx="5" cy="7" r="5" class="red-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="red-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="red-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="red-one"></circle>
+                                        <circle cx="75" cy="41" r="5" class="red-one"></circle>
+                                        <circle cx="95" cy="48" r="5" class="red-one"></circle>
+                                        <circle cx="115" cy="56" r="5" class="red-one"></circle>
+                                        <circle cx="135" cy="62" r="5" class="red-one"></circle>
+                                        <circle cx="152" cy="65" r="5" class="red-one"></circle>
+                                        <circle cx="169" cy="62" r="5" class="red-one"></circle>
+                                        <circle cx="189" cy="56" r="5" class="red-one"></circle>
+                                        <circle cx="209" cy="48" r="5" class="red-one"></circle>
+                                        <circle cx="229" cy="41" r="5" class="red-one"></circle>
+                                        <circle cx="249" cy="33" r="5" class="red-one"></circle>
+                                        <circle cx="267" cy="23" r="5" class="red-one"></circle>
+                                        <circle cx="281" cy="15" r="5" class="red-one"></circle>
+                                        <circle cx="295" cy="5" r="5" class="red-one"></circle>
+                                    </svg>
+                                    <svg width="360" height="80" class="garland-two">
+                                        <circle cx="5" cy="13" r="5" class="red-one"></circle>
+                                        <circle cx="20" cy="20" r="5" class="red-one"></circle>
+                                        <circle cx="35" cy="26" r="5" class="red-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="red-one"></circle>
+                                        <circle cx="75" cy="40" r="5" class="red-one"></circle>
+                                        <circle cx="95" cy="47" r="5" class="red-one"></circle>
+                                        <circle cx="115" cy="55" r="5" class="red-one"></circle>
+                                        <circle cx="135" cy="60" r="5" class="red-one"></circle>
+                                        <circle cx="155" cy="65" r="5" class="red-one"></circle>
+                                        <circle cx="175" cy="68" r="5" class="red-one"></circle>
+                                        <circle cx="195" cy="70" r="5" class="red-one"></circle>
+                                        <circle cx="215" cy="70" r="5" class="red-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="red-one"></circle>
+                                        <circle cx="255" cy="63" r="5" class="red-one"></circle>
+                                        <circle cx="275" cy="57" r="5" class="red-one"></circle>
+                                        <circle cx="295" cy="52" r="5" class="red-one"></circle>
+                                        <circle cx="315" cy="42" r="5" class="red-one"></circle>
+                                        <circle cx="335" cy="30" r="5" class="red-one"></circle>
+                                        <circle cx="355" cy="20" r="5" class="red-one"></circle>
+                                    </svg>
+                                    <svg width="440" height="80" class="garland-one">
+                                        <circle cx="5" cy="10" r="5" class="red-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="red-one"></circle>
+                                        <circle cx="35" cy="22" r="5" class="red-one"></circle>
+                                        <circle cx="55" cy="28" r="5" class="red-one"></circle>
+                                        <circle cx="75" cy="35" r="5" class="red-one"></circle>
+                                        <circle cx="95" cy="40" r="5" class="red-one"></circle>
+                                        <circle cx="115" cy="45" r="5" class="red-one"></circle>
+                                        <circle cx="135" cy="50" r="5" class="red-one"></circle>
+                                        <circle cx="155" cy="54" r="5" class="red-one"></circle>
+                                        <circle cx="175" cy="60" r="5" class="red-one"></circle>
+                                        <circle cx="195" cy="66" r="5" class="red-one"></circle>
+                                        <circle cx="215" cy="68" r="5" class="red-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="red-one"></circle>
+                                        <circle cx="255" cy="68" r="5" class="red-one"></circle>
+                                        <circle cx="275" cy="65" r="5" class="red-one"></circle>
+                                        <circle cx="295" cy="62" r="5" class="red-one"></circle>
+                                        <circle cx="315" cy="57" r="5" class="red-one"></circle>
+                                        <circle cx="335" cy="51" r="5" class="red-one"></circle>
+                                        <circle cx="355" cy="47" r="5" class="red-one"></circle>
+                                        <circle cx="375" cy="41" r="5" class="red-one"></circle>
+                                        <circle cx="395" cy="30" r="5" class="red-one"></circle>
+                                        <circle cx="415" cy="20" r="5" class="red-one"></circle>
+                                        <circle cx="430" cy="10" r="5" class="red-one"></circle>
+                                    </svg>
+                                </div>
+                                <div class="garland-blue none">
+                                    <svg width="150" height="40" class="garland-four">
+                                        <circle cx="5" cy="7" r="5" class="blue-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="blue-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="blue-one"></circle>
+                                        <circle cx="55" cy="31" r="5" class="blue-one"></circle>
+                                        <circle cx="75" cy="34" r="5" class="blue-one"></circle>
+                                        <circle cx="95" cy="31" r="5" class="blue-one"></circle>
+                                        <circle cx="113" cy="25" r="5" class="blue-one"></circle>
+                                        <circle cx="130" cy="17" r="5" class="blue-one"></circle>
+                                        <circle cx="143" cy="7" r="5" class="blue-one"></circle>
+                                    </svg>
+                                    <svg width="175" height="80" class="garland-three garland-three--one">
+                                        <svg width="175" height="60" class="garland">
+                                            <circle cx="5" cy="7" r="5" class="blue-one"></circle>
+                                            <circle cx="20" cy="17" r="5" class="blue-one"></circle>
+                                            <circle cx="37" cy="28" r="5" class="blue-one"></circle>
+                                            <circle cx="55" cy="40" r="5" class="blue-one"></circle>
+                                            <circle cx="72" cy="45" r="5" class="blue-one"></circle>
+                                            <circle cx="90" cy="50" r="5" class="blue-one"></circle>
+                                            <circle cx="110" cy="45" r="5" class="blue-one"></circle>
+                                            <circle cx="130" cy="37" r="5" class="blue-one"></circle>
+                                            <circle cx="148" cy="26" r="5" class="blue-one"></circle>
+                                            <circle cx="160" cy="15" r="5" class="blue-one"></circle>
+                                            <circle cx="170" cy="5" r="5" class="blue-one"></circle>
+                                        </svg>
+                                    </svg>
+                                    <svg width="300" height="80" class="garland-three">
+                                        <circle cx="5" cy="7" r="5" class="blue-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="blue-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="blue-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="blue-one"></circle>
+                                        <circle cx="75" cy="41" r="5" class="blue-one"></circle>
+                                        <circle cx="95" cy="48" r="5" class="blue-one"></circle>
+                                        <circle cx="115" cy="56" r="5" class="blue-one"></circle>
+                                        <circle cx="135" cy="62" r="5" class="blue-one"></circle>
+                                        <circle cx="152" cy="65" r="5" class="blue-one"></circle>
+                                        <circle cx="169" cy="62" r="5" class="blue-one"></circle>
+                                        <circle cx="189" cy="56" r="5" class="blue-one"></circle>
+                                        <circle cx="209" cy="48" r="5" class="blue-one"></circle>
+                                        <circle cx="229" cy="41" r="5" class="blue-one"></circle>
+                                        <circle cx="249" cy="33" r="5" class="blue-one"></circle>
+                                        <circle cx="267" cy="23" r="5" class="blue-one"></circle>
+                                        <circle cx="281" cy="15" r="5" class="blue-one"></circle>
+                                        <circle cx="295" cy="5" r="5" class="blue-one"></circle>
+                                    </svg>
+                                    <svg width="360" height="80" class="garland-two">
+                                        <circle cx="5" cy="13" r="5" class="blue-one"></circle>
+                                        <circle cx="20" cy="20" r="5" class="blue-one"></circle>
+                                        <circle cx="35" cy="26" r="5" class="blue-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="blue-one"></circle>
+                                        <circle cx="75" cy="40" r="5" class="blue-one"></circle>
+                                        <circle cx="95" cy="47" r="5" class="blue-one"></circle>
+                                        <circle cx="115" cy="55" r="5" class="blue-one"></circle>
+                                        <circle cx="135" cy="60" r="5" class="blue-one"></circle>
+                                        <circle cx="155" cy="65" r="5" class="blue-one"></circle>
+                                        <circle cx="175" cy="68" r="5" class="blue-one"></circle>
+                                        <circle cx="195" cy="70" r="5" class="blue-one"></circle>
+                                        <circle cx="215" cy="70" r="5" class="blue-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="blue-one"></circle>
+                                        <circle cx="255" cy="63" r="5" class="blue-one"></circle>
+                                        <circle cx="275" cy="57" r="5" class="blue-one"></circle>
+                                        <circle cx="295" cy="52" r="5" class="blue-one"></circle>
+                                        <circle cx="315" cy="42" r="5" class="blue-one"></circle>
+                                        <circle cx="335" cy="30" r="5" class="blue-one"></circle>
+                                        <circle cx="355" cy="20" r="5" class="blue-one"></circle>
+                                    </svg>
+                                    <svg width="440" height="80" class="garland-one">
+                                        <circle cx="5" cy="10" r="5" class="blue-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="blue-one"></circle>
+                                        <circle cx="35" cy="22" r="5" class="blue-one"></circle>
+                                        <circle cx="55" cy="28" r="5" class="blue-one"></circle>
+                                        <circle cx="75" cy="35" r="5" class="blue-one"></circle>
+                                        <circle cx="95" cy="40" r="5" class="blue-one"></circle>
+                                        <circle cx="115" cy="45" r="5" class="blue-one"></circle>
+                                        <circle cx="135" cy="50" r="5" class="blue-one"></circle>
+                                        <circle cx="155" cy="54" r="5" class="blue-one"></circle>
+                                        <circle cx="175" cy="60" r="5" class="blue-one"></circle>
+                                        <circle cx="195" cy="66" r="5" class="blue-one"></circle>
+                                        <circle cx="215" cy="68" r="5" class="blue-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="blue-one"></circle>
+                                        <circle cx="255" cy="68" r="5" class="blue-one"></circle>
+                                        <circle cx="275" cy="65" r="5" class="blue-one"></circle>
+                                        <circle cx="295" cy="62" r="5" class="blue-one"></circle>
+                                        <circle cx="315" cy="57" r="5" class="blue-one"></circle>
+                                        <circle cx="335" cy="51" r="5" class="blue-one"></circle>
+                                        <circle cx="355" cy="47" r="5" class="blue-one"></circle>
+                                        <circle cx="375" cy="41" r="5" class="blue-one"></circle>
+                                        <circle cx="395" cy="30" r="5" class="blue-one"></circle>
+                                        <circle cx="415" cy="20" r="5" class="blue-one"></circle>
+                                        <circle cx="430" cy="10" r="5" class="blue-one"></circle>
+                                    </svg>
+                                </div>
+                                <div class="garland-yellow none">
+                                    <svg width="150" height="40" class="garland-four">
+                                        <circle cx="5" cy="7" r="5" class="yellow-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="yellow-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="yellow-one"></circle>
+                                        <circle cx="55" cy="31" r="5" class="yellow-one"></circle>
+                                        <circle cx="75" cy="34" r="5" class="yellow-one"></circle>
+                                        <circle cx="95" cy="31" r="5" class="yellow-one"></circle>
+                                        <circle cx="113" cy="25" r="5" class="yellow-one"></circle>
+                                        <circle cx="130" cy="17" r="5" class="yellow-one"></circle>
+                                        <circle cx="143" cy="7" r="5" class="yellow-one"></circle>
+                                    </svg>
+                                    <svg width="175" height="80" class="garland-three garland-three--one">
+                                        <svg width="175" height="60" class="garland">
+                                            <circle cx="5" cy="7" r="5" class="yellow-one"></circle>
+                                            <circle cx="20" cy="17" r="5" class="yellow-one"></circle>
+                                            <circle cx="37" cy="28" r="5" class="yellow-one"></circle>
+                                            <circle cx="55" cy="40" r="5" class="yellow-one"></circle>
+                                            <circle cx="72" cy="45" r="5" class="yellow-one"></circle>
+                                            <circle cx="90" cy="50" r="5" class="yellow-one"></circle>
+                                            <circle cx="110" cy="45" r="5" class="yellow-one"></circle>
+                                            <circle cx="130" cy="37" r="5" class="yellow-one"></circle>
+                                            <circle cx="148" cy="26" r="5" class="yellow-one"></circle>
+                                            <circle cx="160" cy="15" r="5" class="yellow-one"></circle>
+                                            <circle cx="170" cy="5" r="5" class="yellow-one"></circle>
+                                        </svg>
+                                    </svg>
+                                    <svg width="300" height="80" class="garland-three">
+                                        <circle cx="5" cy="7" r="5" class="yellow-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="yellow-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="yellow-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="yellow-one"></circle>
+                                        <circle cx="75" cy="41" r="5" class="yellow-one"></circle>
+                                        <circle cx="95" cy="48" r="5" class="yellow-one"></circle>
+                                        <circle cx="115" cy="56" r="5" class="yellow-one"></circle>
+                                        <circle cx="135" cy="62" r="5" class="yellow-one"></circle>
+                                        <circle cx="152" cy="65" r="5" class="yellow-one"></circle>
+                                        <circle cx="169" cy="62" r="5" class="yellow-one"></circle>
+                                        <circle cx="189" cy="56" r="5" class="yellow-one"></circle>
+                                        <circle cx="209" cy="48" r="5" class="yellow-one"></circle>
+                                        <circle cx="229" cy="41" r="5" class="yellow-one"></circle>
+                                        <circle cx="249" cy="33" r="5" class="yellow-one"></circle>
+                                        <circle cx="267" cy="23" r="5" class="yellow-one"></circle>
+                                        <circle cx="281" cy="15" r="5" class="yellow-one"></circle>
+                                        <circle cx="295" cy="5" r="5" class="yellow-one"></circle>
+                                    </svg>
+                                    <svg width="360" height="80" class="garland-two">
+                                        <circle cx="5" cy="13" r="5" class="yellow-one"></circle>
+                                        <circle cx="20" cy="20" r="5" class="yellow-one"></circle>
+                                        <circle cx="35" cy="26" r="5" class="yellow-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="yellow-one"></circle>
+                                        <circle cx="75" cy="40" r="5" class="yellow-one"></circle>
+                                        <circle cx="95" cy="47" r="5" class="yellow-one"></circle>
+                                        <circle cx="115" cy="55" r="5" class="yellow-one"></circle>
+                                        <circle cx="135" cy="60" r="5" class="yellow-one"></circle>
+                                        <circle cx="155" cy="65" r="5" class="yellow-one"></circle>
+                                        <circle cx="175" cy="68" r="5" class="yellow-one"></circle>
+                                        <circle cx="195" cy="70" r="5" class="yellow-one"></circle>
+                                        <circle cx="215" cy="70" r="5" class="yellow-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="yellow-one"></circle>
+                                        <circle cx="255" cy="63" r="5" class="yellow-one"></circle>
+                                        <circle cx="275" cy="57" r="5" class="yellow-one"></circle>
+                                        <circle cx="295" cy="52" r="5" class="yellow-one"></circle>
+                                        <circle cx="315" cy="42" r="5" class="yellow-one"></circle>
+                                        <circle cx="335" cy="30" r="5" class="yellow-one"></circle>
+                                        <circle cx="355" cy="20" r="5" class="yellow-one"></circle>
+                                    </svg>
+                                    <svg width="440" height="80" class="garland-one">
+                                        <circle cx="5" cy="10" r="5" class="yellow-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="yellow-one"></circle>
+                                        <circle cx="35" cy="22" r="5" class="yellow-one"></circle>
+                                        <circle cx="55" cy="28" r="5" class="yellow-one"></circle>
+                                        <circle cx="75" cy="35" r="5" class="yellow-one"></circle>
+                                        <circle cx="95" cy="40" r="5" class="yellow-one"></circle>
+                                        <circle cx="115" cy="45" r="5" class="yellow-one"></circle>
+                                        <circle cx="135" cy="50" r="5" class="yellow-one"></circle>
+                                        <circle cx="155" cy="54" r="5" class="yellow-one"></circle>
+                                        <circle cx="175" cy="60" r="5" class="yellow-one"></circle>
+                                        <circle cx="195" cy="66" r="5" class="yellow-one"></circle>
+                                        <circle cx="215" cy="68" r="5" class="yellow-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="yellow-one"></circle>
+                                        <circle cx="255" cy="68" r="5" class="yellow-one"></circle>
+                                        <circle cx="275" cy="65" r="5" class="yellow-one"></circle>
+                                        <circle cx="295" cy="62" r="5" class="yellow-one"></circle>
+                                        <circle cx="315" cy="57" r="5" class="yellow-one"></circle>
+                                        <circle cx="335" cy="51" r="5" class="yellow-one"></circle>
+                                        <circle cx="355" cy="47" r="5" class="yellow-one"></circle>
+                                        <circle cx="375" cy="41" r="5" class="yellow-one"></circle>
+                                        <circle cx="395" cy="30" r="5" class="yellow-one"></circle>
+                                        <circle cx="415" cy="20" r="5" class="yellow-one"></circle>
+                                        <circle cx="430" cy="10" r="5" class="yellow-one"></circle>
+                                    </svg>
+                                </div>
+                                <div class="garland-green none">
+                                    <svg width="150" height="40" class="garland-four">
+                                        <circle cx="5" cy="7" r="5" class="green-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="green-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="green-one"></circle>
+                                        <circle cx="55" cy="31" r="5" class="green-one"></circle>
+                                        <circle cx="75" cy="34" r="5" class="green-one"></circle>
+                                        <circle cx="95" cy="31" r="5" class="green-one"></circle>
+                                        <circle cx="113" cy="25" r="5" class="green-one"></circle>
+                                        <circle cx="130" cy="17" r="5" class="green-one"></circle>
+                                        <circle cx="143" cy="7" r="5" class="green-one"></circle>
+                                    </svg>
+                                    <svg width="175" height="80" class="garland-three garland-three--one">
+                                        <svg width="175" height="60" class="garland">
+                                            <circle cx="5" cy="7" r="5" class="green-one"></circle>
+                                            <circle cx="20" cy="17" r="5" class="green-one"></circle>
+                                            <circle cx="37" cy="28" r="5" class="green-one"></circle>
+                                            <circle cx="55" cy="40" r="5" class="green-one"></circle>
+                                            <circle cx="72" cy="45" r="5" class="green-one"></circle>
+                                            <circle cx="90" cy="50" r="5" class="green-one"></circle>
+                                            <circle cx="110" cy="45" r="5" class="green-one"></circle>
+                                            <circle cx="130" cy="37" r="5" class="green-one"></circle>
+                                            <circle cx="148" cy="26" r="5" class="green-one"></circle>
+                                            <circle cx="160" cy="15" r="5" class="green-one"></circle>
+                                            <circle cx="170" cy="5" r="5" class="green-one"></circle>
+                                        </svg>
+                                    </svg>
+                                    <svg width="300" height="80" class="garland-three">
+                                        <circle cx="5" cy="7" r="5" class="green-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="green-one"></circle>
+                                        <circle cx="37" cy="25" r="5" class="green-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="green-one"></circle>
+                                        <circle cx="75" cy="41" r="5" class="green-one"></circle>
+                                        <circle cx="95" cy="48" r="5" class="green-one"></circle>
+                                        <circle cx="115" cy="56" r="5" class="green-one"></circle>
+                                        <circle cx="135" cy="62" r="5" class="green-one"></circle>
+                                        <circle cx="152" cy="65" r="5" class="green-one"></circle>
+                                        <circle cx="169" cy="62" r="5" class="green-one"></circle>
+                                        <circle cx="189" cy="56" r="5" class="green-one"></circle>
+                                        <circle cx="209" cy="48" r="5" class="green-one"></circle>
+                                        <circle cx="229" cy="41" r="5" class="green-one"></circle>
+                                        <circle cx="249" cy="33" r="5" class="green-one"></circle>
+                                        <circle cx="267" cy="23" r="5" class="green-one"></circle>
+                                        <circle cx="281" cy="15" r="5" class="green-one"></circle>
+                                        <circle cx="295" cy="5" r="5" class="green-one"></circle>
+                                    </svg>
+                                    <svg width="360" height="80" class="garland-two">
+                                        <circle cx="5" cy="13" r="5" class="green-one"></circle>
+                                        <circle cx="20" cy="20" r="5" class="green-one"></circle>
+                                        <circle cx="35" cy="26" r="5" class="green-one"></circle>
+                                        <circle cx="55" cy="33" r="5" class="green-one"></circle>
+                                        <circle cx="75" cy="40" r="5" class="green-one"></circle>
+                                        <circle cx="95" cy="47" r="5" class="green-one"></circle>
+                                        <circle cx="115" cy="55" r="5" class="green-one"></circle>
+                                        <circle cx="135" cy="60" r="5" class="green-one"></circle>
+                                        <circle cx="155" cy="65" r="5" class="green-one"></circle>
+                                        <circle cx="175" cy="68" r="5" class="green-one"></circle>
+                                        <circle cx="195" cy="70" r="5" class="green-one"></circle>
+                                        <circle cx="215" cy="70" r="5" class="green-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="green-one"></circle>
+                                        <circle cx="255" cy="63" r="5" class="green-one"></circle>
+                                        <circle cx="275" cy="57" r="5" class="green-one"></circle>
+                                        <circle cx="295" cy="52" r="5" class="green-one"></circle>
+                                        <circle cx="315" cy="42" r="5" class="green-one"></circle>
+                                        <circle cx="335" cy="30" r="5" class="green-one"></circle>
+                                        <circle cx="355" cy="20" r="5" class="green-one"></circle>
+                                    </svg>
+                                    <svg width="440" height="80" class="garland-one">
+                                        <circle cx="5" cy="10" r="5" class="green-one"></circle>
+                                        <circle cx="20" cy="17" r="5" class="green-one"></circle>
+                                        <circle cx="35" cy="22" r="5" class="green-one"></circle>
+                                        <circle cx="55" cy="28" r="5" class="green-one"></circle>
+                                        <circle cx="75" cy="35" r="5" class="green-one"></circle>
+                                        <circle cx="95" cy="40" r="5" class="green-one"></circle>
+                                        <circle cx="115" cy="45" r="5" class="green-one"></circle>
+                                        <circle cx="135" cy="50" r="5" class="green-one"></circle>
+                                        <circle cx="155" cy="54" r="5" class="green-one"></circle>
+                                        <circle cx="175" cy="60" r="5" class="green-one"></circle>
+                                        <circle cx="195" cy="66" r="5" class="green-one"></circle>
+                                        <circle cx="215" cy="68" r="5" class="green-one"></circle>
+                                        <circle cx="235" cy="68" r="5" class="green-one"></circle>
+                                        <circle cx="255" cy="68" r="5" class="green-one"></circle>
+                                        <circle cx="275" cy="65" r="5" class="green-one"></circle>
+                                        <circle cx="295" cy="62" r="5" class="green-one"></circle>
+                                        <circle cx="315" cy="57" r="5" class="green-one"></circle>
+                                        <circle cx="335" cy="51" r="5" class="green-one"></circle>
+                                        <circle cx="355" cy="47" r="5" class="green-one"></circle>
+                                        <circle cx="375" cy="41" r="5" class="green-one"></circle>
+                                        <circle cx="395" cy="30" r="5" class="green-one"></circle>
+                                        <circle cx="415" cy="20" r="5" class="green-one"></circle>
+                                        <circle cx="430" cy="10" r="5" class="green-one"></circle>
+                                    </svg>
+                                </div>
+                                <img class="tree-page__background-start" src="assets/bg-trees.jpg" alt="background" />
+                                <img
+                                    class="tree-page__background-tree"
+                                    src="https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/tree/1.png"
+                                    alt="background"
+                                />
+                            </div>
+                            <div class="tree-page__wrapper-right">
+                                <div class="tree-page__toys">
+                                    <h3 class="tree-page__toys-title">Игрушки</h3>
+                                    <div class="tree-page__toys-collection"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

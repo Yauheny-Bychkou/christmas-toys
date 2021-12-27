@@ -1,14 +1,1 @@
-<svg width="254" height="36" viewBox="0 0 254 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="1" y="1" width="252" height="34" rx="17" stroke="url(#paint0_radial_0_42)" stroke-width="2"/>
-<rect x="1" y="1" width="252" height="34" rx="17" stroke="url(#paint1_radial_0_42)" stroke-width="2"/>
-<defs>
-<radialGradient id="paint0_radial_0_42" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-10.7082) rotate(8.80189) scale(267.863 99.4486)">
-<stop offset="0.0362271" stop-color="#24C5DB"/>
-<stop offset="0.551037" stop-color="#24C5DB" stop-opacity="0.26"/>
-</radialGradient>
-<radialGradient id="paint1_radial_0_42" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(272.204 37.4458) rotate(-169.499) scale(113.045 114.346)">
-<stop stop-color="#2299EB" stop-opacity="0.92"/>
-<stop offset="1" stop-color="#2299EB" stop-opacity="0.07"/>
-</radialGradient>
-</defs>
-</svg>
+<svg width="254" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="252" height="34" rx="17" stroke="url(#a)" stroke-width="2"/><rect x="1" y="1" width="252" height="34" rx="17" stroke="url(#b)" stroke-width="2"/><defs><radialGradient id="a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(264.70847 40.98798 -15.21747 98.27743 -10.708 0)"><stop offset=".036" stop-color="#24C5DB"/><stop offset=".551" stop-color="#24C5DB" stop-opacity=".26"/></radialGradient><radialGradient id="b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-111.1517 -20.60275 20.83987 -112.4309 272.204 37.446)"><stop stop-color="#2299EB" stop-opacity=".92"/><stop offset="1" stop-color="#2299EB" stop-opacity=".07"/></radialGradient></defs></svg>
