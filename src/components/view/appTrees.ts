@@ -206,7 +206,7 @@ export class AppTrees {
         const cloneItem = dragItem.cloneNode(true);
         (<HTMLElement>event.target).append(cloneItem);
         if (spanItem.textContent === "0") {
-          itemToys[itemToys.length - 1].classList.add('none');
+          itemToys[itemToys.length - 1].remove();
         }
       }
       // (<HTMLElement>event.target).append(dragItem);
