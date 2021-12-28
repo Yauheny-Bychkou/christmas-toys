@@ -17,7 +17,26 @@ class App {
         const headerButtonToys = document.querySelector(".header-nav__item--toys");
         const headerButtonTree = document.querySelector(".header-nav__item--tree");
         const headerButtonStart = document.querySelector(".header-nav__item--start");
-
+        const buttonToyPannel = document.querySelector(".tree-page__pannel-toys");
+        const toyPannel = document.querySelector(".tree-page__wrapper-right");
+        const buttonCloseToyPannel = document.querySelector(".tree-page__wrapper-close");
+        const buttonOptionsPannel = document.querySelector(".tree-page__pannel-options");
+        const optionsPannel = document.querySelector(".tree-page__wrapper-left");
+        const buttonCloseOptionsPannel = document.querySelector(".tree-page__left-close");
+        buttonCloseOptionsPannel?.addEventListener("click", () => {
+            optionsPannel!.classList.remove("options-pannel-viisible");
+        });
+        buttonOptionsPannel?.addEventListener("click", () => {
+            console.log(optionsPannel);
+            optionsPannel!.classList.add("options-pannel-viisible");
+        });
+        buttonCloseToyPannel?.addEventListener("click", () => {
+            toyPannel?.classList.remove("toy-pannel-viisible");
+        });
+        buttonToyPannel?.addEventListener("click", () => {
+            console.log(toyPannel);
+            toyPannel?.classList.add("toy-pannel-viisible");
+        });
         headerButtonStart!.addEventListener("click", () => {
             startPage!.classList.remove('none');
             toyPage!.classList.add('none');

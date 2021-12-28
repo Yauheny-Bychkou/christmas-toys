@@ -74,7 +74,7 @@
             </div>
         </header>
         <main class="main">
-            <div class="start-page">
+            <div class="start-page none">
                 <div class="start-page__wrap">
                     <img class="start-page__image" src="assets/bg.jpg" alt="background" />
                     <div class="start-page__absolute">
@@ -704,12 +704,26 @@
                     </div>
                 </div>
             </div>
-            <div class="tree-page none">
+            <div class="tree-page">
                 <img class="start-page__image start-page__image--tree" src="assets/bg.jpg" alt="background" />
                 <div class="tree-page__wrapper">
                     <div class="container">
                         <div class="tree-page__cont">
                             <div class="tree-page__wrapper-left">
+                                <svg
+                                    class="none tree-page__left-close"
+                                    width="18"
+                                    height="18"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M16.912 1.1a1.586 1.586 0 0 0-2.244 0L9 6.758l-5.668-5.67a1.587 1.587 0 0 0-2.244 2.244L6.756 9l-5.668 5.668a1.586 1.586 0 1 0 2.244 2.244L9 11.244l5.668 5.668a1.586 1.586 0 1 0 2.244-2.244L11.244 9l5.668-5.668a1.593 1.593 0 0 0 0-2.231Z"
+                                        fill="#24C5DB"
+                                        stroke="#fff"
+                                        stroke-width=".753"
+                                    />
+                                </svg>
                                 <div class="tree-page__media">
                                     <button class="tree-page__media-button tree-page__media-music"></button>
                                     <button class="tree-page__media-button tree-page__media-snow"></button>
@@ -752,6 +766,8 @@
                                 </div>
                             </div>
                             <div class="tree-page__wrapper-center">
+                                <button class="tree-page__pannel-options">Панель настроек</button>
+                                <button class="tree-page__pannel-toys">Панель игрушек</button>
                                 <div class="drop-zone">
                                     <div class="drop-zone__box drop-zone__underdown-30" data-drop-target="true"></div>
                                     <div class="drop-zone__box drop-zone__underdown-29" data-drop-target="true"></div>
@@ -1429,6 +1445,20 @@
                                 />
                             </div>
                             <div class="tree-page__wrapper-right">
+                                <svg
+                                    class="none tree-page__wrapper-close"
+                                    width="18"
+                                    height="18"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M16.912 1.1a1.586 1.586 0 0 0-2.244 0L9 6.758l-5.668-5.67a1.587 1.587 0 0 0-2.244 2.244L6.756 9l-5.668 5.668a1.586 1.586 0 1 0 2.244 2.244L9 11.244l5.668 5.668a1.586 1.586 0 1 0 2.244-2.244L11.244 9l5.668-5.668a1.593 1.593 0 0 0 0-2.231Z"
+                                        fill="#24C5DB"
+                                        stroke="#fff"
+                                        stroke-width=".753"
+                                    />
+                                </svg>
                                 <div class="tree-page__toys">
                                     <h3 class="tree-page__toys-title">Игрушки</h3>
                                     <div class="tree-page__toys-collection"></div>

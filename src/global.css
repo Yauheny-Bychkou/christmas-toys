@@ -10,6 +10,14 @@
 .opacity {
     opacity: 0;
 }
+.toy-pannel-viisible {
+    right: 0 !important;
+    transition: 0.5s;
+}
+.options-pannel-viisible {
+    left: 0 !important;
+    transition: 0.5s;
+}
 .drop-zone {
     position: absolute;
     z-index: 25;
@@ -2311,6 +2319,40 @@ input[type='range']:active::-webkit-slider-thumb {
     font-weight: 400;
     background-image: radial-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(157, 243, 255, 0.2) 0%);
 }
+.tree-page__pannel-toys {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-top: 80px;
+    padding: 15px 45px;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Raleway';
+    font-weight: 400;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(157, 243, 255, 0.9) 0%);
+    display: none;
+}
+.tree-page__pannel-options {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    margin-top: 80px;
+    padding: 15px 45px;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Raleway';
+    font-weight: 400;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(157, 243, 255, 0.9) 0%);
+    display: none;
+}
 .tree-page__save:active {
     background-color: rgb(36, 197, 219);
 }
@@ -2701,5 +2743,53 @@ input[type='range']:active::-webkit-slider-thumb {
     }
     75% {
         opacity: 0.5;
+    }
+}
+.tree-page__left-close {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+}
+.tree-page__wrapper-close {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+}
+@media (max-width: 1500px) {
+    .tree-page__cont {
+        flex-direction: column;
+        align-items: center;
+    }
+    .tree-page__wrapper-left {
+        position: absolute;
+        left: -100%;
+        z-index: 25;
+        background-color: rgba(25, 47, 45, 1);
+        max-width: 350px;
+        padding: 15px;
+    }
+    .tree-page__wrapper-right {
+        position: absolute;
+        top: -73px;
+        right: -100%;
+        background-color: rgba(25, 47, 45, 1);
+        padding: 15px;
+        max-width: 100%;
+    }
+    .tree-page__pannel-options {
+        top: -70px;
+        display: initial;
+    }
+    .tree-page__pannel-toys {
+        top: -70px;
+        display: initial;
+    }
+    .tree-page__left-close {
+        display: initial !important;
+    }
+    .tree-page__wrapper-close {
+        display: initial !important;
     }
 }
