@@ -92,7 +92,7 @@ export class AppTrees {
       div.append(image, span);
       toysWrapper!.append(div);
       div.classList.add("tree-page__toys-box");
-      image.classList.add("tree-page__toys-img");
+      image.classList.add("tree-page__toys-img", `tree-page__toys-img-${item.num}`);
       image.setAttribute("draggable", "true");
       image.setAttribute("id", `toy-${item.num}`);
       image.setAttribute("src", `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${item.num}.png`);
@@ -175,11 +175,11 @@ export class AppTrees {
     });
     function handleDragstart(event: Event) {
       let spanId = (<HTMLElement>event.target).parentNode?.children[1].id as string;
-
       let spanCount = (<HTMLElement>event.target).parentNode?.children[1].textContent as string;
       (<DragEvent>event).dataTransfer!.setData("spanId", spanId);
       (<DragEvent>event).dataTransfer!.setData("spanCount", spanCount);
       (<DragEvent>event).dataTransfer!.setData("id", (<HTMLElement>event.target).id);
+      (<DragEvent>event).dataTransfer!.setData("class", (<HTMLElement>event.target).classList[1]);
     };
     function handleDragend(event: Event) {
     }
@@ -193,14 +193,22 @@ export class AppTrees {
     };
     function handlerDrop(event: Event) {
       event.preventDefault();
+      const classFlag = (<DragEvent>event).dataTransfer!.getData("class");
       const dragFlag = (<DragEvent>event).dataTransfer!.getData("id");
       const spanFlag = +(<DragEvent>event).dataTransfer!.getData("spanCount");
       const spanIdFlag = (<DragEvent>event).dataTransfer!.getData("spanId");
+      const itemToys = document.querySelectorAll(`.${classFlag}`);
       const spanItem = document.querySelector(`#${spanIdFlag}`)!;
       const dragItem = document.querySelector(`#${dragFlag}`)!;
-      const spanText = spanItem.textContent = `${spanFlag - 1}`;
-      const cloneItem = dragItem.cloneNode(true);
-      (<HTMLElement>event.target).append(cloneItem);
+      spanItem.textContent = `${spanFlag - 1}`;
+
+      if (spanItem.textContent >= "0") {
+        const cloneItem = dragItem.cloneNode(true);
+        (<HTMLElement>event.target).append(cloneItem);
+        if (spanItem.textContent === "0") {
+          itemToys[itemToys.length - 1].classList.add('none');
+        }
+      }
       // (<HTMLElement>event.target).append(dragItem);
 
     };
