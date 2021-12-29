@@ -2613,9 +2613,11 @@ input[type='range']:active::-webkit-slider-thumb {
     animation: var(--speed) alternate 0s infinite blinkYellow;
 }
 .yellow-one {
+    position: relative;
     fill: var(--yellow);
     animation: var(--speed) alternate 0s infinite blinkYellowOne;
 }
+
 .green {
     fill: var(--green);
     animation: var(--speed) alternate 0s infinite blinkGreen;

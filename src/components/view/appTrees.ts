@@ -91,9 +91,10 @@ export class AppTrees {
       div.setAttribute("data-drop-target", "true");
       div.append(image, span);
       toysWrapper!.append(div);
-      div.classList.add("tree-page__toys-box");
+      div.classList.add("tree-page__toys-box", `tree-page__toys-box-${item.num}`);
       image.classList.add("tree-page__toys-img", `tree-page__toys-img-${item.num}`);
       image.setAttribute("draggable", "true");
+      image.setAttribute("data-item", `${item.num}`);
       image.setAttribute("id", `toy-${item.num}`);
       image.setAttribute("src", `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/christmas-task/assets/toys/${item.num}.png`);
       span.setAttribute("id", `tree-page__toys-span-${item.num}`)
@@ -164,52 +165,73 @@ export class AppTrees {
     let targets = document.querySelectorAll("[data-drop-target]");
     draggable.forEach((item) => {
       item.addEventListener("dragstart", handleDragstart);
-      item.addEventListener("dragend", handleDragend);
-
     });
     targets.forEach((item) => {
       item.addEventListener("dragenter", handlerDragenter);
-      item.addEventListener("dragleave", handlerDragleave);
       item.addEventListener("dragover", handlerDragover);
       item.addEventListener("drop", handlerDrop);
     });
     function handleDragstart(event: Event) {
-      let spanId = (<HTMLElement>event.target).parentNode?.children[1].id as string;
-      let spanCount = (<HTMLElement>event.target).parentNode?.children[1].textContent as string;
-      (<DragEvent>event).dataTransfer!.setData("spanId", spanId);
-      (<DragEvent>event).dataTransfer!.setData("spanCount", spanCount);
+      let wrapperToy = (<HTMLElement>(<HTMLElement>event.target).parentNode).classList[0];
+      let wrapperToyOne = (<HTMLElement>(<HTMLElement>event.target).parentNode).classList[1];
+      if ((<HTMLElement>(<HTMLElement>event.target).parentNode).classList[0] !== "drop-zone__box") {
+        let spanId = (<HTMLElement>event.target).parentNode?.children[1].id as string;
+        let spanCount = (<HTMLElement>event.target).parentNode?.children[1].textContent as string;
+        (<DragEvent>event).dataTransfer!.setData("spanId", spanId);
+        (<DragEvent>event).dataTransfer!.setData("spanCount", spanCount);
+      }
+      (<DragEvent>event).dataTransfer!.setData("wrapperToy", wrapperToy);
+      (<DragEvent>event).dataTransfer!.setData("wrapperToyOne", wrapperToyOne);
       (<DragEvent>event).dataTransfer!.setData("id", (<HTMLElement>event.target).id);
-      (<DragEvent>event).dataTransfer!.setData("class", (<HTMLElement>event.target).classList[1]);
     };
-    function handleDragend(event: Event) {
-    }
+
     function handlerDragenter(event: Event) {
       event.preventDefault();
-    };
-    function handlerDragleave(event: Event) {
     };
     function handlerDragover(event: Event) {
       event.preventDefault();
     };
     function handlerDrop(event: Event) {
       event.preventDefault();
-      const classFlag = (<DragEvent>event).dataTransfer!.getData("class");
-      const dragFlag = (<DragEvent>event).dataTransfer!.getData("id");
-      const spanFlag = +(<DragEvent>event).dataTransfer!.getData("spanCount");
-      const spanIdFlag = (<DragEvent>event).dataTransfer!.getData("spanId");
-      const itemToys = document.querySelectorAll(`.${classFlag}`);
-      const spanItem = document.querySelector(`#${spanIdFlag}`)!;
-      const dragItem = document.querySelector(`#${dragFlag}`)!;
-      spanItem.textContent = `${spanFlag - 1}`;
+      const wrapperToy = (<DragEvent>event).dataTransfer!.getData("wrapperToy");
+      const wrapperToyOne = (<DragEvent>event).dataTransfer!.getData("wrapperToyOne");
 
-      if (spanItem.textContent >= "0") {
-        const cloneItem = dragItem.cloneNode(true);
-        (<HTMLElement>event.target).append(cloneItem);
-        if (spanItem.textContent === "0") {
-          itemToys[itemToys.length - 1].remove();
-        }
+      let spanFlag;
+      let spanIdFlag;
+
+      const dragFlag = (<DragEvent>event).dataTransfer!.getData("id");
+      let num;
+      if (dragFlag.length === 5) {
+        num = dragFlag.slice(-1);
+      } else if (dragFlag.length === 6) {
+        num = dragFlag.slice(-2);
       }
-      // (<HTMLElement>event.target).append(dragItem);
+      const dragItem = document.querySelector(`[data-item ="${num}"]`)!;
+      if (wrapperToy === "tree-page__toys-box") {
+        spanFlag = +(<DragEvent>event).dataTransfer!.getData("spanCount");
+        spanIdFlag = (<DragEvent>event).dataTransfer!.getData("spanId");
+        const cloneItem = dragItem.cloneNode(true);
+        (<HTMLElement>document.querySelector(`.${wrapperToyOne}`)).append(cloneItem);
+
+      }
+      // console.log(document.querySelector(`.${wrapperToyOne}`));
+
+      (<HTMLElement>event.target).append(dragItem);
+
+
+      // const itemToys = document.querySelectorAll(`.${classFlag}`);
+      // const spanItem = document.querySelector(`#${spanIdFlag}`)!;
+      // const dragItem = document.querySelector(`#${dragFlag}`)!;
+      // spanItem.textContent = `${spanFlag - 1}`;
+
+      // if (spanItem.textContent >= "0") {
+      //   const cloneItem = dragItem.cloneNode(true);
+      //   (<HTMLElement>event.target).append(cloneItem);
+      //   if (spanItem.textContent === "0") {
+      //     itemToys[itemToys.length - 1].remove();
+      //   }
+      // }
+      // // (<HTMLElement>event.target).append(dragItem);
 
     };
   }
