@@ -2010,6 +2010,7 @@ input[type='range']:active::-webkit-slider-thumb {
 }
 .tree-page__cont {
     display: flex;
+    justify-content: space-between;
 }
 .tree-page__wrapper-right {
     padding-top: 50px;
@@ -2097,8 +2098,8 @@ input[type='range']:active::-webkit-slider-thumb {
     margin-bottom: 0;
 }
 .tree-page__wrapper-center {
-    margin-left: 51px;
-    margin-right: 50px;
+    /* margin-left: 91px;
+    margin-right: 100px; */
     position: relative;
     display: flex;
     max-width: 1000px;
