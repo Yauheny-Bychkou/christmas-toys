@@ -3,7 +3,9 @@ import { Toy } from "../app/toy.model";
 export class AppTrees {
   originalToys: Toy[];
   arrayToys: Toy[];
+  draggable: Element[];
   constructor(data: Toy[]) {
+    this.draggable = [];
     this.originalToys = data.slice();
     this.arrayToys = data.splice(0, 20);
     this.addImageTrees();
@@ -14,7 +16,67 @@ export class AppTrees {
     this.changeImageBackground();
     this.displayGarland();
 
+    const draggable = document.querySelectorAll("[draggable]");
+    const targets = document.querySelectorAll("[data-drop-target]");
+    draggable.forEach((item) => {
+      this.draggable.push(item);
+    });
 
+    targets.forEach((item) => {
+      item.addEventListener("dragenter", (event: Event) => {
+        event.preventDefault();
+      });
+      item.addEventListener("dragover", (event: Event) => {
+        event.preventDefault();
+      });
+      item.addEventListener("drop", (event: Event) => {
+        event.preventDefault();
+        const classToy = (<DragEvent>event).dataTransfer!.getData("classToy");
+        const wrapperToy = (<DragEvent>event).dataTransfer!.getData("wrapperToy");
+        const dragFlag = (<DragEvent>event).dataTransfer!.getData("id");
+        let num;
+        if (dragFlag.length === 5) {
+          num = dragFlag.slice(-1);
+        } else if (dragFlag.length === 6) {
+          num = dragFlag.slice(-2);
+        }
+        const dragItem = document.querySelector(`[data-item ="${num}"]`)!;
+        if (wrapperToy === "tree-page__toys-box") {
+          let spanFlag = +(<DragEvent>event).dataTransfer!.getData("spanCount");
+          let spanIdFlag = (<DragEvent>event).dataTransfer!.getData("spanId");
+
+          const spanItem = document.querySelector(`#${spanIdFlag}`)!;
+          const dragItem = document.querySelector(`#${dragFlag}`)!;
+          spanItem.textContent = `${spanFlag - 1}`;
+          if (spanItem.textContent === "0") {
+            const toys = document.querySelectorAll(`.${dragItem.classList[1]}`);
+            toys[toys.length - 1].remove();
+          }
+          const cloneItem = dragItem.cloneNode(true);
+          (<HTMLElement>event.target).append(cloneItem);
+        } else if (wrapperToy !== "tree-page__toys-box") {
+
+          (<HTMLElement>event.target).append(dragItem);
+        }
+        // console.log(document.querySelector(`.${wrapperToyOne}`));
+
+
+
+        // if (spanItem.textContent >= "0") {
+        //   const cloneItem = dragItem.cloneNode(true);
+        //   (<HTMLElement>event.target).append(cloneItem);
+        //   if (spanItem.textContent === "0") {
+        //     itemToys[itemToys.length - 1].remove();
+        //   }
+        // }
+        // // (<HTMLElement>event.target).append(dragItem);
+        // this.draggable.push();
+        // 
+        this.drag();
+        this.dragAndDropToys();
+      });
+    });
+    this.dragAndDropToys();
   }
   filterFavoriteToys(array: Toy[]) {
     if (array) {
@@ -85,6 +147,8 @@ export class AppTrees {
   addImageToys() {
     const toysWrapper: Element | null = document.querySelector(".tree-page__toys-collection");
     this.arrayToys.forEach((item) => {
+
+
       const div: HTMLDivElement = document.createElement("div");
       const image: HTMLImageElement = document.createElement("img");
       const span: HTMLSpanElement = document.createElement("span");
@@ -101,7 +165,7 @@ export class AppTrees {
       span.classList.add(`tree-page__toys-span`);
       span.textContent = String(item.count);
     })
-    this.dragAndDropToys();
+
   }
   displayGarland() {
     const buttonMultiColor: Element | null = document.querySelector(".tree-page__garland-multicolor");
@@ -161,79 +225,28 @@ export class AppTrees {
     });
   }
   dragAndDropToys() {
-    let draggable = document.querySelectorAll("[draggable]");
-    let targets = document.querySelectorAll("[data-drop-target]");
-    draggable.forEach((item) => {
-      item.addEventListener("dragstart", handleDragstart);
+    this.draggable.forEach((item) => {
+      item.addEventListener("dragstart", (event: Event) => {
+        let wrapperToy = (<HTMLElement>(<HTMLElement>event.target).parentNode).classList[0];
+        if ((<HTMLElement>(<HTMLElement>event.target).parentNode).classList[0] !== "drop-zone__box") {
+          let spanId = (<HTMLElement>event.target).parentNode?.children[1].id as string;
+          let spanCount = (<HTMLElement>event.target).parentNode?.children[1].textContent as string;
+          (<DragEvent>event).dataTransfer!.setData("spanId", spanId);
+          (<DragEvent>event).dataTransfer!.setData("spanCount", spanCount);
+        }
+        (<DragEvent>event).dataTransfer!.setData("classToy", (<HTMLElement>event.target).classList[1]);
+        (<DragEvent>event).dataTransfer!.setData("wrapperToy", wrapperToy);
+        (<DragEvent>event).dataTransfer!.setData("id", (<HTMLElement>event.target).id);
+      });
     });
-    targets.forEach((item) => {
-      item.addEventListener("dragenter", handlerDragenter);
-      item.addEventListener("dragover", handlerDragover);
-      item.addEventListener("drop", handlerDrop);
-    });
-    function handleDragstart(event: Event) {
-      let wrapperToy = (<HTMLElement>(<HTMLElement>event.target).parentNode).classList[0];
-      let wrapperToyOne = (<HTMLElement>(<HTMLElement>event.target).parentNode).classList[1];
-      if ((<HTMLElement>(<HTMLElement>event.target).parentNode).classList[0] !== "drop-zone__box") {
-        let spanId = (<HTMLElement>event.target).parentNode?.children[1].id as string;
-        let spanCount = (<HTMLElement>event.target).parentNode?.children[1].textContent as string;
-        (<DragEvent>event).dataTransfer!.setData("spanId", spanId);
-        (<DragEvent>event).dataTransfer!.setData("spanCount", spanCount);
-      }
-      (<DragEvent>event).dataTransfer!.setData("wrapperToy", wrapperToy);
-      (<DragEvent>event).dataTransfer!.setData("wrapperToyOne", wrapperToyOne);
-      (<DragEvent>event).dataTransfer!.setData("id", (<HTMLElement>event.target).id);
-    };
-
-    function handlerDragenter(event: Event) {
-      event.preventDefault();
-    };
-    function handlerDragover(event: Event) {
-      event.preventDefault();
-    };
-    function handlerDrop(event: Event) {
-      event.preventDefault();
-      const wrapperToy = (<DragEvent>event).dataTransfer!.getData("wrapperToy");
-      const wrapperToyOne = (<DragEvent>event).dataTransfer!.getData("wrapperToyOne");
-
-      let spanFlag;
-      let spanIdFlag;
-
-      const dragFlag = (<DragEvent>event).dataTransfer!.getData("id");
-      let num;
-      if (dragFlag.length === 5) {
-        num = dragFlag.slice(-1);
-      } else if (dragFlag.length === 6) {
-        num = dragFlag.slice(-2);
-      }
-      const dragItem = document.querySelector(`[data-item ="${num}"]`)!;
-      if (wrapperToy === "tree-page__toys-box") {
-        spanFlag = +(<DragEvent>event).dataTransfer!.getData("spanCount");
-        spanIdFlag = (<DragEvent>event).dataTransfer!.getData("spanId");
-        const cloneItem = dragItem.cloneNode(true);
-        (<HTMLElement>document.querySelector(`.${wrapperToyOne}`)).append(cloneItem);
-
-      }
-      // console.log(document.querySelector(`.${wrapperToyOne}`));
-
-      (<HTMLElement>event.target).append(dragItem);
 
 
-      // const itemToys = document.querySelectorAll(`.${classFlag}`);
-      // const spanItem = document.querySelector(`#${spanIdFlag}`)!;
-      // const dragItem = document.querySelector(`#${dragFlag}`)!;
-      // spanItem.textContent = `${spanFlag - 1}`;
 
-      // if (spanItem.textContent >= "0") {
-      //   const cloneItem = dragItem.cloneNode(true);
-      //   (<HTMLElement>event.target).append(cloneItem);
-      //   if (spanItem.textContent === "0") {
-      //     itemToys[itemToys.length - 1].remove();
-      //   }
-      // }
-      // // (<HTMLElement>event.target).append(dragItem);
+  }
 
-    };
+  drag() {
+    this.draggable.push(document.querySelectorAll("[draggable]")[0]);
+
   }
 
 }
