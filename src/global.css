@@ -1553,8 +1553,8 @@ input[type='range']:active::-webkit-slider-thumb {
     display: flex;
 }
 .toy-page__left {
-    font-style: normal;
-    max-width: 446px;
+    font-style: normal; 
+    width: 446px;
     margin-right: 25px;
     padding-bottom: 24px;
 }
@@ -2385,6 +2385,7 @@ input[type='range']:active::-webkit-slider-thumb {
 .footer-wrap__link {
     text-decoration: none;
     color: #fff;
+    margin-right: 5px;
 }
 .snowflake {
     position: absolute;

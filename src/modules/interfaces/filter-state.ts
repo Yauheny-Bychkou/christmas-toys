@@ -26,4 +26,3 @@ export interface IRangeFilter<T> {
   min: T | null;
   max: T | null;
 }
-

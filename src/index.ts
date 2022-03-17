@@ -1,5 +1,4 @@
-import './global.css';
-import App from './components/app/app';
+import "./global.css";
+import { MainPage } from "./modules/pages/mainPage";
 
-const app: App = new App();
-app.start();
+new MainPage();
